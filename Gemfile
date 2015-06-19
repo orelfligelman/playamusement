@@ -41,6 +41,9 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'rails_12factor', group: :production
+
+
 gem 'devise'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
