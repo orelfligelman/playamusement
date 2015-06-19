@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bumper_cars: MyString
+  arcade: MyString
+  himalaya: MyString
+  carousel: MyString
+  ballocity: MyString
+  lazer: MyString
+  runner: MyString
+  soft_play: MyString
+  inflatabales: MyString
+
+two:
+  bumper_cars: MyString
+  arcade: MyString
+  himalaya: MyString
+  carousel: MyString
+  ballocity: MyString
+  lazer: MyString
+  runner: MyString
+  soft_play: MyString
+  inflatabales: MyString

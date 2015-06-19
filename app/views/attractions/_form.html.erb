@@ -1,0 +1,53 @@
+<%= form_for(@attraction) do |f| %>
+  <% if @attraction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attraction.errors.count, "error") %> prohibited this attraction from being saved:</h2>
+
+      <ul>
+      <% @attraction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bumper_cars %><br>
+    <%= f.text_field :bumper_cars %>
+  </div>
+  <div class="field">
+    <%= f.label :arcade %><br>
+    <%= f.text_field :arcade %>
+  </div>
+  <div class="field">
+    <%= f.label :himalaya %><br>
+    <%= f.text_field :himalaya %>
+  </div>
+  <div class="field">
+    <%= f.label :carousel %><br>
+    <%= f.text_field :carousel %>
+  </div>
+  <div class="field">
+    <%= f.label :ballocity %><br>
+    <%= f.text_field :ballocity %>
+  </div>
+  <div class="field">
+    <%= f.label :lazer %><br>
+    <%= f.text_field :lazer %>
+  </div>
+  <div class="field">
+    <%= f.label :runner %><br>
+    <%= f.text_field :runner %>
+  </div>
+  <div class="field">
+    <%= f.label :soft_play %><br>
+    <%= f.text_field :soft_play %>
+  </div>
+  <div class="field">
+    <%= f.label :inflatabales %><br>
+    <%= f.text_field :inflatabales %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

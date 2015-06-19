@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616063601) do
+ActiveRecord::Schema.define(version: 20150616210437) do
+
+  create_table "attractions", force: :cascade do |t|
+    t.string   "bumper_cars"
+    t.string   "arcade"
+    t.string   "himalaya"
+    t.string   "carousel"
+    t.string   "ballocity"
+    t.string   "lazer"
+    t.string   "runner"
+    t.string   "soft_play"
+    t.string   "inflatabales"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

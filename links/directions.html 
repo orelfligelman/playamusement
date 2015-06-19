@@ -23,7 +23,6 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script>
-var input;    
 var map;
 var directionsDisplay;
 var directionsService;
@@ -119,9 +118,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </head>
   <body>
     <div id="panel">
-
-      <input id = 'start'>Start: </input>
-      <input id = 'end'> End: </input>
+      Start<input id = 'start'></input>
+      End<input id = 'end' value = "229 Broad Hollow Road"> </input>
       <button onclick = "calcRoute();"> click </button>
     </div>
     <div id="map-canvas"></div>
