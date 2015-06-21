@@ -48,3 +48,6 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 gem 'pg'
+gem 'google-api-client'
+gem 'better_errors'
+gem 'figaro'

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616210437) do
+ActiveRecord::Schema.define(version: 20150620034741) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "attractions", force: :cascade do |t|
     t.string   "bumper_cars"
@@ -25,6 +28,18 @@ ActiveRecord::Schema.define(version: 20150616210437) do
     t.string   "inflatabales"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "summary"
+    t.string   "location"
+    t.string   "description"
+    t.datetime "start_date"
+    t.string   "timezone"
+    t.datetime "end_date"
+    t.string   "attendees"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "homes", force: :cascade do |t|
@@ -49,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150616210437) do
     t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

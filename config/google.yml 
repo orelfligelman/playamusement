@@ -1,0 +1,11 @@
+development:
+  app_id: 428906640062-r7vv7mrpjvt2v8sb8kvg97g15davsg67.apps.googleusercontent.com
+  secret: NvCKe5lr6ErezsUfIyXKO30W
+
+test:
+  app_id: 428906640062-r7vv7mrpjvt2v8sb8kvg97g15davsg67.apps.googleusercontent.com
+  secret: NvCKe5lr6ErezsUfIyXKO30W
+
+production:
+  app_id: 428906640062-r7vv7mrpjvt2v8sb8kvg97g15davsg67.apps.googleusercontent.com
+  secret: NvCKe5lr6ErezsUfIyXKO30W

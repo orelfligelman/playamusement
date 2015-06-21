@@ -1,0 +1,2 @@
+Google.app_id = ENV["google_client_id"]
+Google.secret = ENV["google_client_secret"]

@@ -12,8 +12,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
   def google_oauth2
-      # You need to implement the method below in your model (e.g. app/models/user.rb)
+    byebug 
     @user = User.from_omniauth(request.env["omniauth.auth"])
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+    byebug 
+    sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
   end
 end
