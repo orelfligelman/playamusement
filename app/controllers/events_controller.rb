@@ -4,7 +4,6 @@
   # GET /events
   # GET /events.json
 
-
 require 'google/api_client'
 require 'google/api_client/client_secrets'
 require 'google/api_client/auth/installed_app'
@@ -36,7 +35,6 @@ def authorize
     puts "Credentials saved to #{CREDENTIALS_PATH}" unless auth.nil?
   end
   auth
-  puts "call me" * 100
 end
 
 def check_upcoming_events
@@ -56,15 +54,14 @@ results = client.execute!(
     :timeMin => Time.now.iso8601 })
 puts "Upcoming events:"
 puts "No upcoming events found" if results.data.items.empty?
-results.data.items.each do |event|irth
+results.data.items.each do |event|
   start = event.start.date || event.start.date_time
   puts "- #{event.summary} (#{start})"
-end
+ end
 end
 
 
 def create_event
-  authorize
 client = Google::APIClient.new(:application_name => APPLICATION_NAME)
 client.authorization = authorize
 calendar_api = client.discovered_api('calendar', 'v3')
@@ -73,11 +70,11 @@ event = {
   'location' => @event.location,
   'description' => @event.description,
   'start' => {
-    'dateTime' => '2015-07-05T09:00:00-07:00',
+    'dateTime' => '2015-06-29T09:00:00-07:00',
     'timeZone' => 'America/Los_Angeles',
   },
    'end' => {
-    'dateTime' => '2015-07-06T17:07:00-08:00',
+    'dateTime' => '2015-06-30T17:00:00-07:00',
     'timeZone' => 'America/Los_Angeles',
   },
   'recurrence' => [
@@ -104,8 +101,9 @@ results = client.execute!(
 event = results.data
 end
 
+
   def index
-   # check_upcoming_events
+   check_upcoming_events
     @events = Event.all.order(start_date: :asc, created_at: :asc)
     # @packages = Packages.all 
   end
@@ -131,8 +129,8 @@ end
 
     respond_to do |format|
       if @event.save
-        # authorize
-        # create_event
+        authorize
+        create_event
         # calendars
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
