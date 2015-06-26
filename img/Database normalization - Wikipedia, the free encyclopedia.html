@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js ve-not-available" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Database normalization - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.26wmf9">
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Database_normalization">
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit">
+<link rel="edit" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit">
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png">
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikipedia.org/w/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="https://en.wikipedia.org/wiki/Database_normalization">
+<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="https://en.wikipedia.org/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Database_normalization">
+<link rel="stylesheet" href="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load_003.css">
+<style>
+.tipsy{padding:5px;position:absolute;z-index:100000;cursor:default}.tipsy-inner{padding:5px 8px 4px 8px; background-color:#ffffff;border:solid 1px #a7d7f9;color:black;max-width:15em;border-radius:4px; }.tipsy-arrow{position:absolute;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALAgMAAADUwp+1AAAACVBMVEX5+fmn1/n///9s6BFKAAAAAXRSTlMAQObYZgAAACpJREFUCB1jZBD4wMiQMoeRcUU4I9uSaYxSE54xZjn8AtMgPkgcJA9UBwAeDw1Qrb3pVAAAAABJRU5ErkJggg==) no-repeat top left;background:url(//en.wikipedia.org/static/1.26wmf10/resources/src/jquery.tipsy/images/tipsy.png?2015-06-16T20:18:20Z) no-repeat top left!ie;width:11px;height:6px} .tipsy-n .tipsy-arrow{top:0px;left:50%;margin-left:-5px} .tipsy-nw .tipsy-arrow{top:1px;left:10px} .tipsy-ne .tipsy-arrow{top:1px;right:10px} .tipsy-s .tipsy-arrow{bottom:0px;left:50%;margin-left:-5px;background-position:bottom left} .tipsy-sw .tipsy-arrow{bottom:0px;left:10px;background-position:bottom left} .tipsy-se .tipsy-arrow{bottom:0px;right:10px;background-position:bottom left} .tipsy-e .tipsy-arrow{top:50%;margin-top:-5px;right:1px;width:5px;height:11px;background-position:top right} .tipsy-w .tipsy-arrow{top:50%;margin-top:-5px;left:0px;width:6px;height:11px} .tipsy{font-size:0.8em}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:0baf39a6325af5821399797bb4c5f53e */</style><style>
+@-webkit-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-webkit-transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@-moz-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-moz-transform:translateY(-20px)}100%{opacity:1;-moz-transform:translateY(0)}}@-o-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-o-transform:translateY(-20px)}100%{opacity:1;-o-transform:translateY(0)}}@keyframes centralAuthPPersonalAnimation{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}.centralAuthPPersonalAnimation{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:centralAuthPPersonalAnimation;-moz-animation-name:centralAuthPPersonalAnimation;-o-animation-name:centralAuthPPersonalAnimation;animation-name:centralAuthPPersonalAnimation}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:0dcacc990dd02e7db9669ab3090b80f1 */
+@media print{#centralNotice{display:none}}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:ddb0c98a055632ae8e349c9cf48ac703 */
+.ve-activated #toc,.ve-activated #siteNotice,.ve-activated .mw-indicators, .ve-active #bodyContent > :not(#siteSub):not(#contentSub):not(.ve-ui-mwTocWidget),.ve-activated #t-print,.ve-activated #t-permalink,.ve-activated #p-coll-print_export,.ve-activated #t-cite,.ve-activating .ve-ui-surface,.ve-deactivating .ve-ui-surface{display:none}.ve-activated #bodyContent,.ve-activated #firstHeading,.ve-activated #siteSub,.ve-activated #contentSub{opacity:0.6;pointer-events:none}.ve-activated #firstHeading{cursor:default} .ve-activated #content{position:relative}.ve-init-mw-viewPageTarget-loading-overlay{position:absolute;left:0;right:0;z-index:1;margin-top:-0.5em}.ve-init-mw-viewPageTarget-progress{border:1px solid #347bff;background:#fff;height:0.75em;border-radius:2px;overflow:hidden;margin:0 25%}.ve-init-mw-viewPageTarget-progress-bar{width:0;height:0.75em;background:#347bff} .mw-editsection{white-space:nowrap; unicode-bidi:-moz-isolate;unicode-bidi:-webkit-isolate;unicode-bidi:isolate}.mw-editsection-divider{color:#555}.ve-tabmessage-appendix{font-size:0.7em;vertical-align:top;line-height:1.43em;padding-left:0.5em; background-image:none !important;display:inline !important}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:98428ddb6d82ef9bb6dcf1d1c4437f25 */
+.uls-menu a{cursor:pointer}.uls-menu.callout .caret-before{border-top:20px solid transparent;border-right:20px solid #C9C9C9;border-bottom:20px solid transparent;display:inline-block;left:-21px;top:30px;position:absolute}.uls-menu.callout .caret-after{border-top:20px solid transparent;border-right:20px solid #FCFCFC;border-bottom:20px solid transparent;display:inline-block;left:-20px;top:30px;position:absolute}.uls-ui-languages button{width:23%;text-overflow:ellipsis;margin-right:4%}button.uls-more-languages{width:auto}.settings-title{font-size:11pt}.settings-text{color:#555555;font-size:9pt}div.display-settings-block:hover .settings-text{color:#252525}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:22d1681fa868b4ff4fbcb1ec1e58a9ea */</style><style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:6989008023386f50501783f5c5ff5345 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(//en.wikipedia.org/static/1.26wmf10/resources/src/mediawiki.action/images/green-checkmark.png?2015-06-16T20:18:20Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:412bba31fb4368ff13b30e2344ce658c */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.mw-ui-icon{position:relative;min-height:1.4em;min-width:1.4em}.mw-ui-icon.mw-ui-icon-element{text-indent:-999px;overflow:hidden;width:3.4em;min-width:3.4em;max-width:3.4em}.mw-ui-icon.mw-ui-icon-element:before{left:0;right:0;position:absolute;margin:0 1em}.mw-ui-icon.mw-ui-icon-before:before,.mw-ui-icon.mw-ui-icon-element:before{background-position:50% 50%;float:left;display:block;background-repeat:no-repeat;background-size:100% auto;min-height:1.4em;content:''}.mw-ui-icon.mw-ui-icon-before:before{position:relative;width:1.4em;margin-right:1em}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:01cc54fb98e6e3d43cbe5c2278ae2d2a */
+#p-lang .uls-settings-trigger{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAgCAQAAACI54EcAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAABWklEQVQoz42RwWrCQBBAc/PkyXiQfpEXobKzEsipCkKh5CBUhBBmaWrw6j/oIQr6VeaSXzDpZDbZ1CWVMhBm5zGT2X1O6fwdv1L0saTwLajmar0d4JHh6XuEofqooVpiQcU7ozbeGWJklXVEGrrcWWKOCUXOeYEuQeXhQaNdv/rPrl/jFH3HjEnM1klTa2FsYNzCBV45zfa9Cu17mPH5gm903A7rhW60d0Rf7opf9D03nVf50jCwyjxHrZvnCzCkR0sZndFVK/y0Hl7NGC46rTxV9hRKH0oope0T5nL9OhDHCsJpOhKhaHyKJRRUvDMyIbRPiB7LdWifnsudJeSQUOScF17lU3pw0GjCPid9jWUqfceMMT6pu6610PiE2ECxgCun2Zh9jnuQ8fkiK58wrBe60d4RfXWf9ik2XVeR2icEFuA5svEJgQinI5kyOnuuWAnbJ8z42f7r8wfhovZYX3llNQAAAABJRU5ErkJggg==) no-repeat right top;background:transparent url(//en.wikipedia.org/static/1.26wmf10/extensions/UniversalLanguageSelector/resources/css/../images/cog-sprite.png?2015-06-16T20:23:20Z) no-repeat right top!ie;background-image:-webkit-linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2214%22%20height%3D%2232%22%3E%3Cdefs%3E%3Cpath%20d%3D%22M14%209.3V6.73l-1.575-.264c-.117-.44-.292-.848-.496-1.2l.93-1.285-1.81-1.84-1.31.908c-.38-.205-.79-.38-1.196-.497L8.284%201H5.716l-.263%201.578c-.437.117-.816.293-1.196.497L2.975%202.17%201.137%203.98l.934%201.287c-.2.38-.376.79-.493%201.228L0%206.73V9.3l1.575.264c.117.438.292.818.496%201.198l-.93%201.315L2.95%2013.89l1.312-.938c.38.205.787.38%201.224.497L5.746%2015h2.566l.263-1.578c.408-.117.817-.293%201.196-.497l1.315.935%201.81-1.812-.935-1.315c.203-.38.38-.76.495-1.2L14%209.303zm-7%201.404c-1.488%200-2.683-1.2-2.683-2.69S5.542%205.327%207%205.327c1.458%200%202.683%201.198%202.683%202.69%200%201.49-1.195%202.688-2.683%202.688z%22%20id%3D%22a%22%2F%3E%3C%2Fdefs%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22%23808080%22%2F%3E%3Cuse%20transform%3D%22translate%280%2016%29%22%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E%0A);background-image:-webkit-linear-gradient(transparent,transparent),url(//en.wikipedia.org/static/1.26wmf10/extensions/UniversalLanguageSelector/resources/css/../images/cog-sprite.svg?2015-06-16T20:23:20Z)!ie;background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2214%22%20height%3D%2232%22%3E%3Cdefs%3E%3Cpath%20d%3D%22M14%209.3V6.73l-1.575-.264c-.117-.44-.292-.848-.496-1.2l.93-1.285-1.81-1.84-1.31.908c-.38-.205-.79-.38-1.196-.497L8.284%201H5.716l-.263%201.578c-.437.117-.816.293-1.196.497L2.975%202.17%201.137%203.98l.934%201.287c-.2.38-.376.79-.493%201.228L0%206.73V9.3l1.575.264c.117.438.292.818.496%201.198l-.93%201.315L2.95%2013.89l1.312-.938c.38.205.787.38%201.224.497L5.746%2015h2.566l.263-1.578c.408-.117.817-.293%201.196-.497l1.315.935%201.81-1.812-.935-1.315c.203-.38.38-.76.495-1.2L14%209.303zm-7%201.404c-1.488%200-2.683-1.2-2.683-2.69S5.542%205.327%207%205.327c1.458%200%202.683%201.198%202.683%202.69%200%201.49-1.195%202.688-2.683%202.688z%22%20id%3D%22a%22%2F%3E%3C%2Fdefs%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22%23808080%22%2F%3E%3Cuse%20transform%3D%22translate%280%2016%29%22%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E%0A);background-image:linear-gradient(transparent,transparent),url(//en.wikipedia.org/static/1.26wmf10/extensions/UniversalLanguageSelector/resources/css/../images/cog-sprite.svg?2015-06-16T20:23:20Z)!ie;height:16px;width:14px;float:right;cursor:pointer}.skin-vector #p-lang .uls-settings-trigger{ margin-top:3px}#p-lang .uls-settings-trigger:hover{background-position:right -16px}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:83b677c7f2687ae2e10328e8b05dbda3 */
+.wp-teahouse-question-form{position:absolute;margin-left:auto;margin-right:auto;background-color:#f4f3f0;border:1px solid #a7d7f9;padding:1em}#wp-th-question-ask{float:right}.wp-teahouse-ask a.external{background-image:none !important}.wp-teahouse-respond-form{position:absolute;margin-left:auto;margin-right:auto;background-color:#f4f3f0;border:1px solid #a7d7f9;padding:1em}.wp-th-respond{float:right}.wp-teahouse-respond a.external{background-image:none !important}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:8614dfa7ef847fc9bfcc2d1c9f720197 */
+.referencetooltip{position:absolute;list-style:none;list-style-image:none;opacity:0;font-size:10px;margin:0;z-index:5;padding:0}.referencetooltip li{border:#080086 2px solid;max-width:260px;padding:10px 8px 13px 8px;margin:0px;background-color:#F7F7F7;box-shadow:2px 4px 2px rgba(0,0,0,0.3);-moz-box-shadow:2px 4px 2px rgba(0,0,0,0.3);-webkit-box-shadow:2px 4px 2px rgba(0,0,0,0.3)}.referencetooltip li+li{margin-left:7px;margin-top:-2px;border:0;padding:0;height:3px;width:0px;background-color:transparent;box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;border-top:12px #080086 solid;border-right:7px transparent solid;border-left:7px transparent solid}.referencetooltip>li+li::after{content:'';border-top:8px #F7F7F7 solid;border-right:5px transparent solid;border-left:5px transparent solid;margin-top:-12px;margin-left:-5px;z-index:1;height:0px;width:0px;display:block}.client-js body .referencetooltip li li{border:none;box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;height:auto;width:auto;margin:auto;padding:0;position:static}.RTflipped{padding-top:13px}.referencetooltip.RTflipped li+li{position:absolute;top:2px;border-top:0;border-bottom:12px #080086 solid}.referencetooltip.RTflipped li+li::after{border-top:0;border-bottom:8px #F7F7F7 solid;position:absolute;margin-top:7px}.RTsettings{float:right;height:24px;width:24px;cursor:pointer;background-image:url(//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Gear_icon.svg/24px-Gear_icon.svg.png);background-image:linear-gradient(transparent,transparent),url(//upload.wikimedia.org/wikipedia/commons/7/77/Gear_icon.svg);margin-top:-9px;margin-right:-7px;-webkit-transition:opacity 0.15s;-moz-transition:opacity 0.15s;-o-transition:opacity 0.15s;-ms-transition:opacity 0.15s;transition:opacity 0.15s;opacity:0.6;filter:alpha(opacity=60)}.RTsettings:hover{opacity:1;filter:alpha(opacity=100)}.RTTarget{border:#080086 2px solid}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:1a7de28fa04cd61435c75627cef69e87 */
+.skin-vector li.GA,.skin-monobook li.GA,.skin-modern li.GA{list-style-image:url(//upload.wikimedia.org/wikipedia/commons/4/42/Monobook-bullet-ga.png)} .skin-vector li.FA,.skin-monobook li.FA{list-style-image:url(//upload.wikimedia.org/wikipedia/commons/d/d4/Monobook-bullet-star.png)}.skin-modern li.FA{list-style-image:url(//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Modern-bullet-star.svg/9px-Modern-bullet-star.svg.png)}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:22ca6c0fc9d0923a196f8a3aec796994 */</style><style>
+.mw-mmv-overlay{position:fixed;top:0px;left:0px;right:0px;bottom:0px;z-index:1000;background-color:#000000}body.mw-mmv-lightbox-open{overflow-y:auto}body.mw-mmv-lightbox-open #mw-page-base,body.mw-mmv-lightbox-open #mw-head-base,body.mw-mmv-lightbox-open #mw-navigation,body.mw-mmv-lightbox-open #content,body.mw-mmv-lightbox-open #footer,body.mw-mmv-lightbox-open #globalWrapper // monobook{ display:none}body.mw-mmv-lightbox-open > *{ display:none}body.mw-mmv-lightbox-open > .mw-mmv-overlay,body.mw-mmv-lightbox-open > .mw-mmv-wrapper{display:block}.mw-mmv-filepage-buttons{margin-top:5px}.mw-mmv-filepage-buttons .mw-mmv-view-expanded,.mw-mmv-filepage-buttons .mw-mmv-view-config{display:block}.mw-mmv-filepage-buttons .mw-mmv-view-expanded.mw-ui-icon:before{background-image:url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3C%21--%20Created%20with%20Inkscape%20%28http%3A%2F%2Fwww.inkscape.org%2F%29%20--%3E%0A%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20width%3D%22100%25%22%0A%20%20%20height%3D%22100%25%22%0A%20%20%20viewBox%3D%220%200%201024%20768%22%0A%20%20%20id%3D%22Layer_1%22%0A%20%20%20xml%3Aspace%3D%22preserve%22%3E%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata17%22%3E%3Crdf%3ARDF%3E%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%3C%2Fcc%3AWork%3E%3C%2Frdf%3ARDF%3E%3C%2Fmetadata%3E%3Cdefs%0A%20%20%20%20%20id%3D%22defs15%22%20%2F%3E%3Cg%0A%20%20%20%20%20id%3D%22g3%22%3E%3Cpolygon%0A%20%20%20%20%20%20%20points%3D%22851.2%2C71.6%20690.7%2C232.1%20650.6%2C191.8%20641%2C356.6%20805.8%2C347.3%20765.5%2C306.9%20926%2C146.4%20984.5%2C204.9%20997.6%2C0%20792.7%2C13.1%20%22%0A%20%20%20%20%20%20%20id%3D%22polygon5%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23777777%22%20%2F%3E%3Cpolygon%0A%20%20%20%20%20%20%20points%3D%22769.6%2C89.3%20611.9%2C89.3%20682.8%2C160.1%20690.7%2C167.6%20%22%0A%20%20%20%20%20%20%20id%3D%22polygon7%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23777777%22%20%2F%3E%3Cpath%0A%20%20%20%20%20%20%20d%3D%22m%20643.6%2C402.2%20-51.2%2C3%203%2C-51.2%209.4%2C-164.4%205.8%2C-100.3%20H%2026.4%20V%20768%20H%20909.5%20V%20387%20l%20-100.9%2C5.8%20-165%2C9.4%20z%20M%20813.9%2C678%20H%20113.6%20l%20207.2%2C-270.2%2031.5%2C-12.9%20195.7%2C204.9%20105.9%2C-63.2%20159.8%2C140.8%200.2%2C0.6%200%2C0%20z%22%0A%20%20%20%20%20%20%20id%3D%22path9%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23777777%22%20%2F%3E%3Cpolygon%0A%20%20%20%20%20%20%20points%3D%22909.5%2C386.1%20909.5%2C228%20830.4%2C306.9%20838.2%2C314.8%20%22%0A%20%20%20%20%20%20%20id%3D%22polygon11%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23777777%22%20%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);background-image:url(//en.wikipedia.org/static/1.26wmf10/extensions/MultimediaViewer/resources/mmv/img/expand.svg?2015-06-16T20:21:40Z)!ie}.mw-mmv-filepage-buttons .mw-mmv-view-config.mw-ui-icon:before{background-image:url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3C%21--%20Created%20with%20Inkscape%20%28http%3A%2F%2Fwww.inkscape.org%2F%29%20--%3E%0A%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20width%3D%22100%25%22%0A%20%20%20height%3D%22100%25%22%0A%20%20%20viewBox%3D%220%200%201024%20768%22%0A%20%20%20id%3D%22Layer_1%22%0A%20%20%20xml%3Aspace%3D%22preserve%22%3E%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata9%22%3E%3Crdf%3ARDF%3E%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%3C%2Fcc%3AWork%3E%3C%2Frdf%3ARDF%3E%3C%2Fmetadata%3E%3Cdefs%0A%20%20%20%20%20id%3D%22defs7%22%20%2F%3E%3Cpath%0A%20%20%20%20%20d%3D%22M%20897%2C454.6%20V%20313.4%20L%20810.4%2C299%20c%20-6.4%2C-23.3%20-16%2C-45.7%20-27.3%2C-65.8%20L%20833.6%2C161.8%20734.2%2C61.6%20662.8%2C112.1%20C%20641.9%2C100.9%20620.3%2C91.2%20597%2C84.8%20L%20582.6%2C-1%20H%20441.4%20L%20427%2C85.6%20c%20-23.3%2C6.4%20-45.7%2C16%20-65.8%2C27.3%20L%20289.8%2C62.4%20189.5%2C161.9%20240%2C233.3%20c%20-11.2%2C20.9%20-20.9%2C42.5%20-27.3%2C66.6%20L%20127%2C313.4%20v%20141.2%20l%2085.8%2C14.4%20c%206.4%2C23.3%2016%2C45.7%2027.3%2C66.6%20l%20-50.5%2C71.4%2099.5%2C99.5%2071.4%2C-50.5%20c%2020.9%2C11.2%2042.5%2C20.9%2066.6%2C27.3%20l%2014.4%2C85.8%20h%20141.2%20l%2014.4%2C-86.6%20c%2023.3%2C-6.4%2045.7%2C-16%2065.8%2C-27.3%20l%2071.4%2C50.5%2099.5%2C-99.5%20-50.5%2C-71.4%20c%2011.2%2C-20.9%2020.9%2C-42.5%2027.3%2C-66.6%20L%20897%2C454.6%20z%20m%20-385%2C77%20C%20430.2%2C531.6%20364.4%2C465%20364.4%2C384%20364.4%2C302.2%20431%2C236.4%20512%2C236.4%20c%2081%2C0%20147.6%2C65.8%20147.6%2C147.6%200%2C81.8%20-65.8%2C147.6%20-147.6%2C147.6%20z%22%0A%20%20%20%20%20id%3D%22path3%22%0A%20%20%20%20%20style%3D%22fill%3A%23777777%22%20%2F%3E%3C%2Fsvg%3E);background-image:url(//en.wikipedia.org/static/1.26wmf10/extensions/MultimediaViewer/resources/mmv/img/gear_gray.svg?2015-06-16T20:21:40Z)!ie;opacity:0.75}.mw-mmv-filepage-buttons .mw-mmv-view-config.mw-ui-icon:before:hover{opacity:1}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:8628e8e0be35db73a13a70cd8c085236 */</style><style>
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load.css">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load_003.php"></script><script src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Database_normalization","wgTitle":"Database normalization","wgCurRevisionId":664523510,"wgRevisionId":664523510,"wgArticleId":8640,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Database normalization","Database management systems","Data management","Data modeling","Database constraints","Relational algebra"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Database_normalization","wgRelevantArticleId":8640,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgGatherShouldShowTutorial":true,"wgGatherPageImageThumbnail":"//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Insertion_anomaly.svg/100px-Insertion_anomaly.svg.png","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q339072"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:b2706269305541eba923c165462b22c4 */
+}</script>
+<script>if(window.mw){
+mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.imageMetrics.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script><script src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load_002.php"></script>
+<link rel="dns-prefetch" href="https://meta.wikimedia.org/">
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static/1.26wmf9/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Database_normalization skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><div id="centralNotice"></div><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">
+				Database normalization			</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub">
+									</div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">
+						navigation					</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><p><b>Database normalization</b> is the process of organizing the <a href="https://en.wikipedia.org/wiki/Attribute_%28computer_science%29" title="Attribute (computer science)" class="mw-redirect">attributes</a> and <a href="https://en.wikipedia.org/wiki/Table_%28database%29" title="Table (database)">tables</a> of a <a href="https://en.wikipedia.org/wiki/Relational_database" title="Relational database">relational database</a> to minimize <a href="https://en.wikipedia.org/wiki/Data_redundancy" title="Data redundancy">data redundancy</a>.</p>
+<p>Normalization involves decomposing a table into less redundant (and smaller) tables but without losing information; defining <a href="https://en.wikipedia.org/wiki/Foreign_Key" title="Foreign Key" class="mw-redirect">foreign keys</a> in the old table referencing the <a href="https://en.wikipedia.org/wiki/Primary_Key" title="Primary Key" class="mw-redirect">primary keys</a>
+ of the new ones. The objective is to isolate data so that additions, 
+deletions, and modifications of an attribute can be made in just one 
+table and then propagated through the rest of the database using the 
+defined foreign keys.</p>
+<p><a href="https://en.wikipedia.org/wiki/Edgar_F._Codd" title="Edgar F. Codd">Edgar F. Codd</a>, the inventor of the <a href="https://en.wikipedia.org/wiki/Relational_model" title="Relational model">relational model</a> (RM), introduced the concept of normalization and what we now know as the <a href="https://en.wikipedia.org/wiki/First_normal_form" title="First normal form">First normal form</a> (1NF) in 1970.<sup id="cite_ref-Codd1970_1-0" class="reference"><a href="#cite_note-Codd1970-1"><span>[</span>1<span>]</span></a></sup> Codd went on to define the <a href="https://en.wikipedia.org/wiki/Second_normal_form" title="Second normal form">Second normal form</a> (2NF) and <a href="https://en.wikipedia.org/wiki/Third_normal_form" title="Third normal form">Third normal form</a> (3NF) in 1971,<sup id="cite_ref-Codd.2C_E.F_1971_2-0" class="reference"><a href="#cite_note-Codd.2C_E.F_1971-2"><span>[</span>2<span>]</span></a></sup> and Codd and <a href="https://en.wikipedia.org/wiki/Raymond_F._Boyce" title="Raymond F. Boyce">Raymond F. Boyce</a> defined the Boyce-Codd Normal Form (<a href="https://en.wikipedia.org/wiki/Boyce%E2%80%93Codd_normal_form" title="Boyce–Codd normal form">BCNF</a>) in 1974.<sup id="cite_ref-CoddBCNF_3-0" class="reference"><a href="#cite_note-CoddBCNF-3"><span>[</span>3<span>]</span></a></sup> Informally, a relational database table is often described as "normalized" if it is in the Third Normal Form.<sup id="cite_ref-DateIntroDBSys_4-0" class="reference"><a href="#cite_note-DateIntroDBSys-4"><span>[</span>4<span>]</span></a></sup> Most 3NF tables are free of insertion, update, and deletion anomalies.</p>
+<p>The relational model separates the <a href="https://en.wikipedia.org/w/index.php?title=Logical_design&amp;action=edit&amp;redlink=1" class="new" title="Logical design (page does not exist)">logical design</a> from the <a href="https://en.wikipedia.org/wiki/Database_design#Physical_database_design" title="Database design">physical design</a>: <a href="https://en.wikipedia.org/wiki/DBMS" title="DBMS" class="mw-redirect">DBMS</a> <a href="https://en.wikipedia.org/wiki/Performance" title="Performance">performance</a>
+ is a matter of physical designer using indexes, view materialization, 
+big buffers, etc. It is not a matter of changing the logical design.</p>
+<p>A typical example of normalization is that an entity's <a href="https://en.wikipedia.org/wiki/Unique_identifier" title="Unique identifier">unique ID</a>
+ is stored everywhere in the system but its name is held in only one 
+table. The name can be updated more easily in one row of one table. A 
+typical update in such an example would be the RIM company changing its 
+name to BlackBerry.<sup id="cite_ref-EXAMPLE_5-0" class="reference"><a href="#cite_note-EXAMPLE-5"><span>[</span>5<span>]</span></a></sup> That update would be done in one place and immediately the correct "BlackBerry" name would be displayed throughout the system.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+<span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Objectives"><span class="tocnumber">1</span> <span class="toctext">Objectives</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Free_the_database_of_modification_anomalies"><span class="tocnumber">1.1</span> <span class="toctext">Free the database of modification anomalies</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Minimize_redesign_when_extending_the_database_structure"><span class="tocnumber">1.2</span> <span class="toctext">Minimize redesign when extending the database structure</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Avoid_bias_towards_any_particular_pattern_of_querying"><span class="tocnumber">1.3</span> <span class="toctext">Avoid bias towards any particular pattern of querying</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Example"><span class="tocnumber">1.4</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#See_also"><span class="tocnumber">2</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Notes_and_references"><span class="tocnumber">3</span> <span class="toctext">Notes and references</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Further_reading"><span class="tocnumber">4</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Objectives">Objectives</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=1" title="Edit section: Objectives">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A basic objective of the <a href="https://en.wikipedia.org/wiki/First_normal_form" title="First normal form">first normal form</a> defined by Codd in 1970 was to permit data to be queried and manipulated using a "universal data sub-language" grounded in <a href="https://en.wikipedia.org/wiki/First-order_logic" title="First-order logic">first-order logic</a>.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>6<span>]</span></a></sup> (<a href="https://en.wikipedia.org/wiki/SQL" title="SQL">SQL</a> is an example of such a data sub-language, albeit one that Codd regarded as seriously flawed.)<sup id="cite_ref-7" class="reference"><a href="#cite_note-7"><span>[</span>7<span>]</span></a></sup></p>
+<p>The objectives of normalization beyond 1NF (First Normal Form) were stated as follows by Codd:</p>
+<blockquote class="toccolours" style="float:none; display:table;">
+<div style="padding: 10px 15px 10px 15px;">
+<dl>
+<dd>1. To free the collection of relations from undesirable insertion, update and deletion dependencies;</dd>
+<dd>2. To reduce the need for restructuring the collection of relations,
+ as new types of data are introduced, and thus increase the life span of
+ application programs;</dd>
+<dd>3. To make the relational model more informative to users;</dd>
+<dd>4. To make the collection of relations neutral to the query 
+statistics, where these statistics are liable to change as time goes by.</dd>
+</dl>
+<p style="text-align: right;">— E.F. Codd, <i>"Further Normalization of the Data Base Relational Model"<sup id="cite_ref-8" class="reference"><a href="#cite_note-8"><span>[</span>8<span>]</span></a></sup></i></p>
+</div>
+</blockquote>
+<p>The sections below give details of each of these objectives.</p>
+<h3><span class="mw-headline" id="Free_the_database_of_modification_anomalies">Free the database of modification anomalies</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=2" title="Edit section: Free the database of modification anomalies">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:282px;"><a href="https://en.wikipedia.org/wiki/File:Update_anomaly.svg" class="image"><img alt="" src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/280px-Update_anomaly.png" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/29/Update_anomaly.svg/420px-Update_anomaly.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/29/Update_anomaly.svg/560px-Update_anomaly.svg.png 2x" data-file-width="758" data-file-height="327" height="121" width="280"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Update_anomaly.svg" class="internal" title="Enlarge"></a></div>
+An <b>update anomaly</b>. Employee 519 is shown as having different addresses on different records.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:282px;"><a href="https://en.wikipedia.org/wiki/File:Insertion_anomaly.svg" class="image"><img alt="" src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/280px-Insertion_anomaly.png" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Insertion_anomaly.svg/420px-Insertion_anomaly.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Insertion_anomaly.svg/560px-Insertion_anomaly.svg.png 2x" data-file-width="758" data-file-height="370" height="137" width="280"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Insertion_anomaly.svg" class="internal" title="Enlarge"></a></div>
+An <b>insertion anomaly</b>. Until the new faculty member, Dr. Newsome, is assigned to teach at least one course, his details cannot be recorded.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:282px;"><a href="https://en.wikipedia.org/wiki/File:Deletion_anomaly.svg" class="image"><img alt="" src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/280px-Deletion_anomaly.png" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Deletion_anomaly.svg/420px-Deletion_anomaly.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Deletion_anomaly.svg/560px-Deletion_anomaly.svg.png 2x" data-file-width="776" data-file-height="332" height="120" width="280"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Deletion_anomaly.svg" class="internal" title="Enlarge"></a></div>
+A <b>deletion anomaly</b>. All information about Dr. Giddens is lost if he temporarily ceases to be assigned to any courses.</div>
+</div>
+</div>
+<p>When an attempt is made to modify (update, insert into, or delete 
+from) a table, undesired side-effects may follow. Not all tables can 
+suffer from these side-effects; rather, the side-effects can only arise 
+in tables that have not been sufficiently normalized. An insufficiently 
+normalized table might have one or more of the following 
+characteristics:</p>
+<ul>
+<li>The same information can be expressed on multiple rows; therefore 
+updates to the table may result in logical inconsistencies. For example,
+ each record in an "Employees' Skills" table might contain an Employee 
+ID, Employee Address, and Skill; thus a change of address for a 
+particular employee will potentially need to be applied to multiple 
+records (one for each skill). If the update is not carried through 
+successfully—if, that is, the employee's address is updated on some 
+records but not others—then the table is left in an inconsistent state. 
+Specifically, the table provides conflicting answers to the question of 
+what this particular employee's address is. This phenomenon is known as 
+an <b>update anomaly</b>.</li>
+<li>There are circumstances in which certain facts cannot be recorded at
+ all. For example, each record in a "Faculty and Their Courses" table 
+might contain a Faculty ID, Faculty Name, Faculty Hire Date, and Course 
+Code—thus we can record the details of any faculty member who teaches at
+ least one course, but we cannot record the details of a newly hired 
+faculty member who has not yet been assigned to teach any courses except
+ by setting the Course Code to null. This phenomenon is known as an <b>insertion anomaly</b>.</li>
+<li>Under certain circumstances, deletion of data representing certain 
+facts necessitates deletion of data representing completely different 
+facts. The "Faculty and Their Courses" table described in the previous 
+example suffers from this type of anomaly, for if a faculty member 
+temporarily ceases to be assigned to any courses, we must delete the 
+last of the records on which that faculty member appears, effectively 
+also deleting the faculty member, unless we set the Course Code to null 
+in the record itself. This phenomenon is known as a <b>deletion anomaly</b>.</li>
+</ul>
+<h3><span class="mw-headline" id="Minimize_redesign_when_extending_the_database_structure">Minimize redesign when extending the database structure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=3" title="Edit section: Minimize redesign when extending the database structure">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When a fully normalized database structure is extended to allow it to
+ accommodate new types of data, the pre-existing aspects of the database
+ structure can remain largely or entirely unchanged. As a result, 
+applications interacting with the database are minimally affected.</p>
+<p><br>
+Normalized tables, and the relationship between one normalized table and
+ another, mirror real-world concepts and their interrelationships.</p>
+<h3><span class="mw-headline" id="Avoid_bias_towards_any_particular_pattern_of_querying">Avoid bias towards any particular pattern of querying</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=4" title="Edit section: Avoid bias towards any particular pattern of querying">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Normalized tables are suitable for general-purpose querying. This 
+means any queries against these tables, including future queries whose 
+details cannot be anticipated, are supported. In contrast, tables that 
+are not normalized lend themselves to some types of queries, but not 
+others.</p>
+<p>For example, consider an online bookseller whose customers maintain 
+wishlists of books they'd like to have. For the obvious, anticipated 
+query—what books does this customer want?—it's enough to store the 
+customer's wishlist in the table as, say, a homogeneous string of 
+authors and titles.</p>
+<p>With this design, though, the database can answer only that one 
+single query. It cannot by itself answer interesting but unanticipated 
+queries: What is the most-wished-for book? Which customers are 
+interested in WWII espionage? How does Lord Byron stack up against his 
+contemporary poets? Answers to these questions must come from special 
+adaptive tools completely separate from the database. One tool might be 
+software written especially to handle such queries. This special 
+adaptive software has just one single purpose: in effect to normalize 
+the non-normalized attribute.</p>
+<p>Unforeseen queries can be answered trivially, and entirely within the database framework, with a normalized table.</p>
+<h3><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=5" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Querying and manipulating the data within a data structure which is 
+not normalized, such as the following non-1NF representation of 
+customers' credit card transactions, involves more complexity than is 
+really necessary:</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Customer</th>
+<th>Transactions</th>
+</tr>
+<tr>
+<td>Jones</td>
+<td>
+<table class="wikitable">
+<tbody><tr>
+<th>Tr. ID</th>
+<th>Date</th>
+<th>Amount</th>
+</tr>
+<tr>
+<td>12890</td>
+<td>14-Oct-2003</td>
+<td>−87</td>
+</tr>
+<tr>
+<td>12904</td>
+<td>15-Oct-2003</td>
+<td>−50</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>Wilkinson</td>
+<td>
+<table class="wikitable">
+<tbody><tr>
+<th>Tr. ID</th>
+<th>Date</th>
+<th>Amount</th>
+</tr>
+<tr>
+<td>12898</td>
+<td>14-Oct-2003</td>
+<td>−21</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>Stevens</td>
+<td>
+<table class="wikitable">
+<tbody><tr>
+<th>Tr. ID</th>
+<th>Date</th>
+<th>Amount</th>
+</tr>
+<tr>
+<td>12907</td>
+<td>15-Oct-2003</td>
+<td>−18</td>
+</tr>
+<tr>
+<td>14920</td>
+<td>20-Nov-2003</td>
+<td>−70</td>
+</tr>
+<tr>
+<td>15003</td>
+<td>27-Nov-2003</td>
+<td>−60</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<p><br>
+To each customer corresponds a <i>repeating group</i> of transactions. 
+The automated evaluation of any query relating to customers' 
+transactions therefore would broadly involve two stages:</p>
+<ol>
+<li>Unpacking one or more customers' groups of transactions allowing the individual transactions in a group to be examined, and</li>
+<li>Deriving a query result based on the results of the first stage</li>
+</ol>
+<p>For example, in order to find out the monetary sum of all 
+transactions that occurred in October 2003 for all customers, the system
+ would have to know that it must first unpack the <i>Transactions</i> group of each customer, then sum the <i>Amounts</i> of all transactions thus obtained where the <i>Date</i> of the transaction falls in October 2003.</p>
+<p>One of Codd's important insights was that this structural complexity 
+could always be removed completely, leading to much greater power and 
+flexibility in the way queries could be formulated (by <a href="https://en.wikipedia.org/wiki/User_%28computing%29" title="User (computing)">users</a> and <a href="https://en.wikipedia.org/wiki/Application_software" title="Application software">applications</a>) and evaluated (by the <a href="https://en.wikipedia.org/wiki/Database_management_system" title="Database management system" class="mw-redirect">DBMS</a>). The normalized equivalent of the structure above would look like this:</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Customer</th>
+<th>Cust. ID</th>
+</tr>
+<tr>
+<td>Jones</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Wilkins</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Stevens</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<table class="wikitable">
+<tbody><tr>
+<th>Cust. ID</th>
+<th>Tr. ID</th>
+<th>Date</th>
+<th>Amount</th>
+</tr>
+<tr>
+<td>1</td>
+<td>12890</td>
+<td>14-Oct-2003</td>
+<td>−87</td>
+</tr>
+<tr>
+<td>1</td>
+<td>12904</td>
+<td>15-Oct-2003</td>
+<td>−50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12898</td>
+<td>14-Oct-2003</td>
+<td>−21</td>
+</tr>
+<tr>
+<td>3</td>
+<td>12907</td>
+<td>15-Oct-2003</td>
+<td>−18</td>
+</tr>
+<tr>
+<td>3</td>
+<td>14920</td>
+<td>20-Nov-2003</td>
+<td>−70</td>
+</tr>
+<tr>
+<td>3</td>
+<td>15003</td>
+<td>27-Nov-2003</td>
+<td>−60</td>
+</tr>
+</tbody></table>
+<p>Now each row represents an individual credit card transaction, and 
+the DBMS can obtain the answer of interest, simply by finding all rows 
+with a Date falling in October, and summing their Amounts. The data 
+structure places all of the values on an equal footing, exposing each to
+ the DBMS directly, so each can potentially participate directly in 
+queries; whereas in the previous situation some values were embedded in 
+lower-level structures that had to be handled specially. Accordingly, 
+the normalized design lends itself to general-purpose query processing, 
+whereas the unnormalized design does not. The normalized version also 
+allows the user to change the customer name in one place and guards 
+against errors that arise if the customer name is misspelled on some 
+records.</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=6" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Refactoring" title="Refactoring" class="mw-redirect">Refactoring</a></li>
+</ul>
+<h2><span class="mw-headline" id="Notes_and_references">Notes and references</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=7" title="Edit section: Notes and references">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-count references-column-count-2" style="-moz-column-count: 2; -webkit-column-count: 2; column-count: 2; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-Codd1970-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-Codd1970_1-0"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text"><span class="citation journal"><a href="https://en.wikipedia.org/wiki/E.F._Codd" title="E.F. Codd" class="mw-redirect">Codd, E.F.</a> (June 1970). <a rel="nofollow" class="external text" href="http://www.acm.org/classics/nov95/toc.html">"A Relational Model of Data for Large Shared Data Banks"</a>. <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i> <b>13</b> (6): 377–387. <a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://dx.doi.org/10.1145%2F362384.362685">10.1145/362384.362685</a>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADatabase+normalization&amp;rft.atitle=A+Relational+Model+of+Data+for+Large+Shared+Data+Banks&amp;rft.au=Codd%2C+E.F.&amp;rft.aufirst=E.F.&amp;rft.aulast=Codd&amp;rft.date=June+1970&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.acm.org%2Fclassics%2Fnov95%2Ftoc.html&amp;rft_id=info%3Adoi%2F10.1145%2F362384.362685&amp;rft.issue=6&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.pages=377-387&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=13" class="Z3988"><span style="display:none;">&nbsp;</span></span></span></li>
+<li id="cite_note-Codd.2C_E.F_1971-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-Codd.2C_E.F_1971_2-0"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text">Codd,
+ E.F. "Further Normalization of the Data Base Relational Model". 
+(Presented at Courant Computer Science Symposia Series 6, "Data Base 
+Systems", New York City, May 24–25, 1971.) IBM Research Report RJ909 
+(August 31, 1971). Republished in Randall J. Rustin (ed.), <i>Data Base Systems: Courant Computer Science Symposia Series 6</i>. Prentice-Hall, 1972.</span></li>
+<li id="cite_note-CoddBCNF-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-CoddBCNF_3-0"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text">Codd,
+ E. F. "Recent Investigations into Relational Data Base Systems". IBM 
+Research Report RJ1385 (April 23, 1974). Republished in <i>Proc. 1974 Congress</i> (Stockholm, Sweden, 1974). , N.Y.: North-Holland (1974).</span></li>
+<li id="cite_note-DateIntroDBSys-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-DateIntroDBSys_4-0"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text">C.J. Date. <i>An Introduction to Database Systems</i>. Addison-Wesley (1999), p. 290</span></li>
+<li id="cite_note-EXAMPLE-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-EXAMPLE_5-0"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text"><span class="citation web">Reed, B. <a rel="nofollow" class="external text" href="http://bgr.com/2013/01/30/rblackberry-z10-q10-announce-311920/">"RIM changes its name to BlackBerry"</a>. <i>BGR.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2014-06-03</span></span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADatabase+normalization&amp;rft.atitle=RIM+changes+its+name+to+BlackBerry&amp;rft.aufirst=B&amp;rft.aulast=Reed&amp;rft.au=Reed%2C+B&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fbgr.com%2F2013%2F01%2F30%2Frblackberry-z10-q10-announce-311920%2F&amp;rft.jtitle=BGR.com&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&nbsp;</span></span></span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text">"The
+ adoption of a relational model of data ... permits the development of a
+ universal data sub-language based on an applied predicate calculus. A 
+first-order predicate calculus suffices if the collection of relations 
+is in first normal form. Such a language would provide a yardstick of 
+linguistic power for all other proposed data languages, and would itself
+ be a strong candidate for embedding (with appropriate syntactic 
+modification) in a variety of host Ianguages (programming, command- or 
+problem-oriented)." Codd, <a rel="nofollow" class="external text" href="http://www.acm.org/classics/nov95/toc.html">"A Relational Model of Data for Large Shared Data Banks"</a>, p. 381</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text">Codd, E.F. Chapter 23, "Serious Flaws in SQL", in <i>The Relational Model for Database Management: Version 2</i>. Addison-Wesley (1990), pp. 371–389</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8"><span class="cite-accessibility-label">Jump up </span>^</a></b></span> <span class="reference-text">Codd, E.F. "Further Normalization of the Data Base Relational Model", p. 34</span></li>
+</ol>
+</div>
+<div class="refbegin" style=""></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=8" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://www.troubleshooters.com/littstip/ltnorm.html">Litt's Tips: Normalization</a></li>
+<li>Date, C. J. (1999), <i><a rel="nofollow" class="external text" href="http://www.aw-bc.com/catalog/academic/product/0,1144,0321197844,00.html">An Introduction to Database Systems</a></i> (8th ed.). Addison-Wesley Longman. <a href="https://en.wikipedia.org/wiki/Special:BookSources/0321197844" class="internal mw-magiclink-isbn">ISBN 0-321-19784-4</a>.</li>
+<li>Kent, W. (1983) <i><a rel="nofollow" class="external text" href="http://www.bkent.net/Doc/simple5.htm">A Simple Guide to Five Normal Forms in Relational Database Theory</a></i>, Communications of the ACM, vol. 26, pp.&nbsp;120–125</li>
+<li>H.-J. Schek, P. Pistor Data Structures for an Integrated Data Base Management and Information Retrieval System</li>
+</ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://databases.about.com/od/specificproducts/a/normalization.htm">Database Normalization Basics</a> by Mike Chapple (About.com)</li>
+<li><a rel="nofollow" class="external text" href="http://www.databasejournal.com/sqletc/article.php/1428511">Database Normalization Intro</a>, <a rel="nofollow" class="external text" href="http://www.databasejournal.com/sqletc/article.php/26861_1474411_1">Part 2</a></li>
+<li><a rel="nofollow" class="external text" href="http://mikehillyer.com/articles/an-introduction-to-database-normalization/">An Introduction to Database Normalization</a> by Mike Hillyer.</li>
+<li><a rel="nofollow" class="external text" href="http://phlonx.com/resources/nf3/">A tutorial on the first 3 normal forms</a> by Fred Coulson</li>
+<li><a rel="nofollow" class="external text" href="http://www.dbnormalization.com/">DB Normalization Examples</a></li>
+<li><a rel="nofollow" class="external text" href="http://support.microsoft.com/kb/283878">Description of the database normalization basics</a> by Microsoft</li>
+<li><a rel="nofollow" class="external text" href="http://www.barrywise.com/2008/01/database-normalization-and-design-techniques/">Database Normalization and Design Techniques</a> by Barry Wise, recommended reading for the Harvard MIS.</li>
+<li><a rel="nofollow" class="external text" href="http://www.bkent.net/Doc/simple5.htm">A Simple Guide to Five Normal Forms in Relational Database Theory</a></li>
+<li><a rel="nofollow" class="external text" href="http://beginnersbook.com/2015/05/normalization-in-dbms/">Normalization in DBMS by Chaitanya (beginnersbook.com)</a></li>
+</ul>
+<table class="navbox" style="border-spacing:0">
+<tbody><tr>
+<td style="padding:2px">
+<table id="collapsibleTable0" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tbody><tr>
+<th scope="col" class="navbox-title" colspan="2"><span class="collapseButton">[<a href="#" id="collapseButton0">show</a>]</span>
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Database_normalization" title="Template:Database normalization"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Database_normalization" title="Template talk:Database normalization"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Database_normalization&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><strong class="selflink">Database normalization</strong></div>
+</th>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Main topics</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><strong class="selflink">Normalization</strong></li>
+<li><a href="https://en.wikipedia.org/wiki/Denormalization" title="Denormalization">Denormalization</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Normal forms</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/First_normal_form" title="First normal form">First normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Second_normal_form" title="Second normal form">Second normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Third_normal_form" title="Third normal form">Third normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Boyce%E2%80%93Codd_normal_form" title="Boyce–Codd normal form">Boyce–Codd normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fourth_normal_form" title="Fourth normal form">Fourth normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fifth_normal_form" title="Fifth normal form">Fifth normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Domain/key_normal_form" title="Domain/key normal form">Domain/key normal form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sixth_normal_form" title="Sixth normal form">Sixth normal form</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="navbox" style="border-spacing:0">
+<tbody><tr>
+<td style="padding:2px">
+<table id="collapsibleTable1" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tbody><tr>
+<th scope="col" class="navbox-title" colspan="2"><span class="collapseButton">[<a href="#" id="collapseButton1">show</a>]</span>
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Database" title="Template:Database"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Database" title="Template talk:Database"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Database&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="https://en.wikipedia.org/wiki/Database" title="Database">Database</a></div>
+</th>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Main</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database#Major_database_usage_requirements" title="Database">Requirements</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_theory" title="Database theory">Theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_model" title="Database model">Models</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_management_system" title="Database management system" class="mw-redirect">Database management system</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_machine" title="Database machine">Machine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_server" title="Database server">Server</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_application" title="Database application">Application</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_connection" title="Database connection">Connection</a>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Datasource" title="Datasource">datasource</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Data_Source_Name" title="Data Source Name" class="mw-redirect">DSN</a></li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Database_administrator" title="Database administrator">Administrator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lock_%28database%29" title="Lock (database)">Lock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Category:Types_of_databases" title="Category:Types of databases">Types</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_database_tools" title="Comparison of database tools">Tools</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Database#Database_languages" title="Database">Languages</a></th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Data_definition_language" title="Data definition language">Data definition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Data_manipulation_language" title="Data manipulation language">Data manipulation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Query_language" title="Query language">Query</a>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Information_retrieval_query_language" title="Information retrieval query language">information retrieval</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Database_security" title="Database security">Security</a></th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_activity_monitoring" title="Database activity monitoring">Activity monitoring</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_audit" title="Database audit">Audit</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_forensics" title="Database forensics">Forensics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Negative_database" title="Negative database">Negative database</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Database_design" title="Database design">Design</a></th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Entity-relationship_model" title="Entity-relationship model" class="mw-redirect">Entities and relationships</a> (and <a href="https://en.wikipedia.org/wiki/Enhanced_Entity-Relationship_Model" title="Enhanced Entity-Relationship Model" class="mw-redirect">Enhanced</a> notation)</li>
+<li><strong class="selflink">Normalization</strong></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_refactoring" title="Database refactoring">Refactoring</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Programming</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_abstraction_layer" title="Database abstraction layer">Abstraction layer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Object-relational_mapping" title="Object-relational mapping">Object-relational mapping</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Management</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_virtualization" title="Database virtualization">Virtualization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_tuning" title="Database tuning">Tuning</a>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_caching" title="Database caching">caching</a></li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Data_migration#Database_migration" title="Data migration">Migration</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_preservation" title="Database preservation">Preservation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_integrity" title="Database integrity" class="mw-redirect">Integrity</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">See also</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database-centric_architecture" title="Database-centric architecture">Database-centric architecture</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intelligent_database" title="Intelligent database">Intelligent database</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Two-phase_locking" title="Two-phase locking">Two-phase locking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Locks_with_ordered_sharing" title="Locks with ordered sharing">Locks with ordered sharing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Load_file" title="Load file">Load file</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_publishing" title="Database publishing">Publishing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Halloween_Problem" title="Halloween Problem">Halloween Problem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Log_shipping" title="Log shipping">Log shipping</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<td class="navbox-abovebelow hlist" colspan="2">
+<div>
+<ul>
+<li><b><img alt="Wikipedia book" src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/16px-Symbol_book_class2.png" title="Wikipedia book" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Symbol_book_class2.svg/23px-Symbol_book_class2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/89/Symbol_book_class2.svg/31px-Symbol_book_class2.svg.png 2x" data-file-width="180" data-file-height="185" height="16" width="16"> <a href="https://en.wikipedia.org/wiki/Book:Databases" title="Book:Databases">Book</a></b></li>
+<li><b><img alt="Category" src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/16px-Folder_Hexagonal_Icon.png" title="Category" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/24px-Folder_Hexagonal_Icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/32px-Folder_Hexagonal_Icon.svg.png 2x" data-file-width="36" data-file-height="31" height="14" width="16"> <a href="https://en.wikipedia.org/wiki/Category:Databases" title="Category:Databases">Category</a></b></li>
+<li><b><img alt="WikiProject" src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/16px-People_icon.png" title="WikiProject" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/24px-People_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/32px-People_icon.svg.png 2x" data-file-width="100" data-file-height="100" height="16" width="16"> <a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Databases" title="Wikipedia:WikiProject Databases">WikiProject</a></b></li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="navbox" style="border-spacing:0">
+<tbody><tr>
+<td style="padding:2px">
+<table id="collapsibleTable2" class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tbody><tr>
+<th scope="col" class="navbox-title" colspan="2"><span class="collapseButton">[<a href="#" id="collapseButton2">show</a>]</span>
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Databases" title="Template:Databases"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Databases" title="Template talk:Databases"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Databases&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="https://en.wikipedia.org/wiki/Database_management_system" title="Database management system" class="mw-redirect">Database management systems</a></div>
+</th>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_model" title="Database model">Database models</a></li>
+<li><strong class="selflink">Database normalization</strong></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_storage_structures" title="Database storage structures">Database storage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Distributed_database_management_system" title="Distributed database management system" class="mw-redirect">Distributed DBMS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Federated_database_system" title="Federated database system">Federated database system</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Referential_integrity" title="Referential integrity">Referential integrity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relational_algebra" title="Relational algebra">Relational algebra</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relational_calculus" title="Relational calculus">Relational calculus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relational_database" title="Relational database">Relational database</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relational_database_management_system" title="Relational database management system">Relational DBMS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relational_model" title="Relational model">Relational model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Object-relational_database" title="Object-relational database">Object-relational database</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transaction_processing" title="Transaction processing">Transaction processing</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Concepts</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database" title="Database">Database</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ACID" title="ACID">ACID</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CAP_theorem" title="CAP theorem">CAP theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" title="Create, read, update and delete">CRUD</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Null_%28SQL%29" title="Null (SQL)">Null</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Candidate_key_%28Template%29" title="Candidate key (Template)" class="mw-redirect">Candidate key</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Foreign_key" title="Foreign key">Foreign key</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Primary_key" title="Primary key" class="mw-redirect">Primary key</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Superkey_%28Template%29" title="Superkey (Template)" class="mw-redirect">Superkey</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Surrogate_key" title="Surrogate key">Surrogate key</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Armstrong%27s_axioms" title="Armstrong's axioms">Armstrong's axioms</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Objects</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Relation_%28database%29" title="Relation (database)">Relation</a>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Table_%28database%29" title="Table (database)">table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Column_%28database%29" title="Column (database)">column</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Row_%28database%29" title="Row (database)">row</a></li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/View_%28SQL%29" title="View (SQL)">View</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_transaction" title="Database transaction">Transaction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transaction_log" title="Transaction log">Log</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_trigger" title="Database trigger">Trigger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Index_%28database%29" title="Index (database)" class="mw-redirect">Index</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stored_procedure" title="Stored procedure">Stored procedure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cursor_%28databases%29" title="Cursor (databases)">Cursor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Partition_%28database%29" title="Partition (database)">Partition</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Components</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Concurrency_control" title="Concurrency control">Concurrency control</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Data_dictionary" title="Data dictionary">Data dictionary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Java_Database_Connectivity" title="Java Database Connectivity">JDBC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XQuery_API_for_Java" title="XQuery API for Java">XQJ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Open_Database_Connectivity" title="Open Database Connectivity">ODBC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Query_language" title="Query language">Query language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Query_optimizer" title="Query optimizer" class="mw-redirect">Query optimizer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Query_plan" title="Query plan">Query plan</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<th scope="row" class="navbox-group">Functions</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_administration_and_automation" title="Database administration and automation">Administration and automation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Query_optimization" title="Query optimization">Query optimization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Database_replication" title="Database replication" class="mw-redirect">Replication</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height: 2px; display: none;">
+<td colspan="2"></td>
+</tr>
+<tr style="display: none;">
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<dl>
+<dt>Database products</dt>
+<dd><a href="https://en.wikipedia.org/wiki/List_of_object-oriented_database_management_systems" title="List of object-oriented database management systems" class="mw-redirect">Object-oriented</a>
+<dl>
+<dd><a href="https://en.wikipedia.org/wiki/Comparison_of_object-relational_database_management_systems" title="Comparison of object-relational database management systems">comparison</a></dd>
+</dl>
+</dd>
+<dd><a href="https://en.wikipedia.org/wiki/List_of_relational_database_management_systems" title="List of relational database management systems">Relational</a>
+<dl>
+<dd><a href="https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems" title="Comparison of relational database management systems">comparison</a></dd>
+</dl>
+</dd>
+<dd><a href="https://en.wikipedia.org/wiki/Document-oriented_database" title="Document-oriented database">Document-oriented</a></dd>
+<dd><a href="https://en.wikipedia.org/wiki/Graph_database" title="Graph database">Graph</a></dd>
+<dd><a href="https://en.wikipedia.org/wiki/NoSQL" title="NoSQL">NoSQL</a></dd>
+<dd><a href="https://en.wikipedia.org/wiki/NewSQL" title="NewSQL">NewSQL</a></dd>
+</dl>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1257
+CPU time usage: 0.165 seconds
+Real time usage: 0.210 seconds
+Preprocessor visited node count: 630/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 37421/2097152 bytes
+Template argument size: 692/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/500
+Lua time usage: 0.039/10.000 seconds
+Lua memory usage: 1.59 MB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  115.323      1 - -total
+ 48.34%   55.750      1 - Template:Reflist
+ 33.37%   38.485      3 - Template:Navbox
+ 31.77%   36.635      1 - Template:Cite_journal
+ 17.91%   20.658      1 - Template:Database
+ 15.72%   18.125      1 - Template:Database_normalization
+  9.59%   11.064      1 - Template:Databases
+  8.69%   10.019      3 - Template:Icon
+  4.39%    5.065      1 - Template:Cite_web
+  3.00%    3.458      1 - Template:Refbegin
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:8640-0!*!0!!en!4!* and timestamp 20150612111540 and revision id 664523510
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Database_normalization&amp;oldid=664523510">http://en.wikipedia.org/w/index.php?title=Database_normalization&amp;oldid=664523510</a>"					</div>
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Database_normalization" title="Category:Database normalization">Database normalization</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Database_management_systems" title="Category:Database management systems">Database management systems</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Data_management" title="Category:Data management">Data management</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Data_modeling" title="Category:Data modeling">Data modeling</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Database_constraints" title="Category:Database constraints">Database constraints</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Relational_algebra" title="Category:Relational algebra">Relational algebra</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Database+normalization&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Database+normalization" title="You're encouraged to log in; however, it's not mandatory. [Alt+Shift+o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="https://en.wikipedia.org/wiki/Database_normalization" title="View the content page [Alt+Shift+c]" accesskey="c">Article</a></span></li>
+															<li id="ca-talk"><span><a href="https://en.wikipedia.org/wiki/Talk:Database_normalization" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 tabindex="0" id="p-variants-label">
+							<span>Variants</span><a tabindex="-1" href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="https://en.wikipedia.org/wiki/Database_normalization">Read</a></span></li>
+															<li id="ca-edit"><span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=edit" title="You can edit this page. Please use the preview button before saving [Alt+Shift+e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=history" title="Past versions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div style="" id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 tabindex="0" id="p-cactions-label"><span>More</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input autocomplete="off" tabindex="1" name="search" placeholder="Search" title="Search Wikipedia [Alt+Shift+f]" accesskey="f" id="searchInput" type="search"><input value="Special:Search" name="title" type="hidden"><input name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" type="submit">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="https://en.wikipedia.org/wiki/Main_Page" title="Visit the main page [Alt+Shift+z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="https://en.wikipedia.org/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="https://en.wikipedia.org/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="https://en.wikipedia.org/wiki/Special:Random" title="Load a random article [Alt+Shift+x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="https://shop.wikimedia.org/" title="Visit the Wikimedia Shop">Wikipedia store</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-interaction" aria-labelledby="p-interaction-label">
+			<h3 id="p-interaction-label">Interaction</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-help"><a href="https://en.wikipedia.org/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [Alt+Shift+r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Database_normalization" title="List of all English Wikipedia pages containing links to this page [Alt+Shift+j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Database_normalization" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [Alt+Shift+u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;oldid=664523510" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Q339072" title="Link to connected data repository item [Alt+Shift+g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Database_normalization&amp;id=664523510" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-coll-print_export" aria-labelledby="p-coll-print_export-label">
+			<h3 id="p-coll-print_export-label">Print/export</h3>
+
+			<div class="body">
+									<ul>
+						<li id="coll-create_a_book"><a href="https://en.wikipedia.org/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Database+normalization">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="https://en.wikipedia.org/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Database+normalization&amp;oldid=664523510&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="https://en.wikipedia.org/w/index.php?title=Database_normalization&amp;printable=yes" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-lang" aria-labelledby="p-lang-label"><span original-title="Language settings" aria-haspopup="true" role="button" tabindex="0" class="uls-settings-trigger"></span>
+			<h3 id="p-lang-label">Languages</h3>
+
+			<div class="body">
+									<ul>
+						<li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%B3%D9%88%D9%8A%D8%A9_%D9%82%D8%A7%D8%B9%D8%AF%D8%A9_%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA" title="تسوية قاعدة البيانات – Arabic" hreflang="ar" lang="ar">العربية</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Normalizace_datab%C3%A1ze" title="Normalizace databáze – Czech" hreflang="cs" lang="cs">Čeština</a></li><li class="interlanguage-link interwiki-de badge-Q17437798 badge-goodarticle" title="good article"><a href="https://de.wikipedia.org/wiki/Normalisierung_%28Datenbank%29" title="Normalisierung (Datenbank) – German" hreflang="de" lang="de">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Normalizaci%C3%B3n_de_bases_de_datos" title="Normalización de bases de datos – Spanish" hreflang="es" lang="es">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D9%86%D8%B1%D9%85%D8%A7%D9%84%E2%80%8C%D8%B3%D8%A7%D8%B2%DB%8C_%28%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D8%AF%D8%A7%D8%AF%D9%87%E2%80%8C%D9%87%D8%A7%29" title="نرمال‌سازی (پایگاه داده‌ها) – Persian" hreflang="fa" lang="fa">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Forme_normale_%28bases_de_donn%C3%A9es_relationnelles%29" title="Forme normale (bases de données relationnelles) – French" hreflang="fr" lang="fr">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EC%A0%95%EA%B7%9C%ED%99%94" title="데이터베이스 정규화 – Korean" hreflang="ko" lang="ko">한국어</a></li><li class="interlanguage-link interwiki-hr"><a href="https://hr.wikipedia.org/wiki/Normalizacija_baze_podataka" title="Normalizacija baze podataka – Croatian" hreflang="hr" lang="hr">Hrvatski</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Normalizzazione_%28informatica%29" title="Normalizzazione (informatica) – Italian" hreflang="it" lang="it">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%A0%D7%A8%D7%9E%D7%95%D7%9C_%D7%91%D7%A1%D7%99%D7%A1_%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D" title="נרמול בסיס נתונים – Hebrew" hreflang="he" lang="he">עברית</a></li><li class="interlanguage-link interwiki-lv"><a href="https://lv.wikipedia.org/wiki/Datub%C4%81zes_normaliz%C4%81cija" title="Datubāzes normalizācija – Latvian" hreflang="lv" lang="lv">Latviešu</a></li><li class="interlanguage-link interwiki-mk"><a href="https://mk.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%98%D0%B0_%D0%BD%D0%B0_%D0%B1%D0%B0%D0%B7%D0%B8_%D0%BD%D0%B0_%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D1%86%D0%B8" title="Нормализација на бази на податоци – Macedonian" hreflang="mk" lang="mk">Македонски</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/Databasenormalisatie" title="Databasenormalisatie – Dutch" hreflang="nl" lang="nl">Nederlands</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%AD%A3%E8%A6%8F%E5%8C%96" title="リレーションの正規化 – Japanese" hreflang="ja" lang="ja">日本語</a></li><li class="interlanguage-link interwiki-no"><a href="https://no.wikipedia.org/wiki/Normalisering" title="Normalisering – Norwegian" hreflang="no" lang="no">Norsk bokmål</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Normalizacja_bazy_danych" title="Normalizacja bazy danych – Polish" hreflang="pl" lang="pl">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Normaliza%C3%A7%C3%A3o_de_dados" title="Normalização de dados – Portuguese" hreflang="pt" lang="pt">Português</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%84%D0%BE%D1%80%D0%BC%D0%B0" title="Нормальная форма – Russian" hreflang="ru" lang="ru">Русский</a></li><li class="interlanguage-link interwiki-sq"><a href="https://sq.wikipedia.org/wiki/Normalizimi_i_databaz%C3%ABs" title="Normalizimi i databazës – Albanian" hreflang="sq" lang="sq">Shqip</a></li><li class="interlanguage-link interwiki-simple"><a href="https://simple.wikipedia.org/wiki/Database_normalisation" title="Database normalisation – Simple English" hreflang="simple" lang="simple">Simple English</a></li><li class="interlanguage-link interwiki-sk"><a href="https://sk.wikipedia.org/wiki/Normaliz%C3%A1cia_%28datab%C3%A1zy%29" title="Normalizácia (databázy) – Slovak" hreflang="sk" lang="sk">Slovenčina</a></li><li class="interlanguage-link interwiki-sr"><a href="https://sr.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%98%D0%B0_%D0%B1%D0%B0%D0%B7%D0%B0_%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0" title="Нормализација база података – Serbian" hreflang="sr" lang="sr">Српски / srpski</a></li><li class="interlanguage-link interwiki-sh"><a href="https://sh.wikipedia.org/wiki/Normalizacija_baze_podataka" title="Normalizacija baze podataka – Serbo-Croatian" hreflang="sh" lang="sh">Srpskohrvatski / српскохрватски</a></li><li class="interlanguage-link interwiki-fi"><a href="https://fi.wikipedia.org/wiki/Tietokannan_normalisointi" title="Tietokannan normalisointi – Finnish" hreflang="fi" lang="fi">Suomi</a></li><li class="interlanguage-link interwiki-sv"><a href="https://sv.wikipedia.org/wiki/Normalform_%28databaser%29" title="Normalform (databaser) – Swedish" hreflang="sv" lang="sv">Svenska</a></li><li class="interlanguage-link interwiki-ta"><a href="https://ta.wikipedia.org/wiki/%E0%AE%A4%E0%AE%B0%E0%AE%B5%E0%AF%81%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%B3_%E0%AE%87%E0%AE%AF%E0%AE%B2%E0%AF%8D%E0%AE%AA%E0%AE%BE%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D" title="தரவுத்தள இயல்பாக்கம் – Tamil" hreflang="ta" lang="ta">தமிழ்</a></li><li class="interlanguage-link interwiki-tr"><a href="https://tr.wikipedia.org/wiki/Normalizasyon" title="Normalizasyon – Turkish" hreflang="tr" lang="tr">Türkçe</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F_%D0%B1%D0%B0%D0%B7_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" title="Нормалізація баз даних – Ukrainian" hreflang="uk" lang="uk">Українська</a></li><li class="interlanguage-link interwiki-ur"><a href="https://ur.wikipedia.org/wiki/%D9%82%D8%A7%D8%B9%D8%AF%DB%81_%D9%85%D8%B9%D8%B7%DB%8C%D8%A7%D8%AA_%D9%85%D8%B9%D9%85%D9%88%D9%84%D8%B3%D8%A7%D8%B2%DB%8C" title="قاعدہ معطیات معمولسازی – Urdu" hreflang="ur" lang="ur">اردو</a></li><li class="interlanguage-link interwiki-vi"><a href="https://vi.wikipedia.org/wiki/Chu%E1%BA%A9n_h%C3%B3a_d%E1%BB%AF_li%E1%BB%87u" title="Chuẩn hóa dữ liệu – Vietnamese" hreflang="vi" lang="vi">Tiếng Việt</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%84%E8%8C%83%E5%8C%96" title="数据库规范化 – Chinese" hreflang="zh" lang="zh">中文</a></li>					</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Q339072#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 29 May 2015, at 05:58.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="https://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="https://en.m.wikipedia.org/w/index.php?title=Database_normalization&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+							<a href="https://wikimediafoundation.org/"><img src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" alt="Wikimedia Foundation" height="31" width="88"></a>						</li>
+											<li id="footer-poweredbyico">
+							<a href="https://www.mediawiki.org/"><img src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//en.wikipedia.org/static/1.26wmf9/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //en.wikipedia.org/static/1.26wmf9/resources/assets/poweredby_mediawiki_176x62.png 2x" height="31" width="88"></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<link rel="stylesheet" href="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load_002.css">
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.cirrusSearch.loggingSchema","mmv.bootstrap.autostart","ext.imageMetrics.loader","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//en.wikipedia.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="Database%20normalization%20-%20Wikipedia,%20the%20free%20encyclopedia_files/load_004.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":325,"wgHostname":"mw1257"});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

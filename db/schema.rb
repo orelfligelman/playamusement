@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620034741) do
+ActiveRecord::Schema.define(version: 20150626054349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20150620034741) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "summary"
     t.string   "location"
@@ -43,6 +48,46 @@ ActiveRecord::Schema.define(version: 20150620034741) do
   end
 
   create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "new_cart_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "card_number"
+    t.integer  "events_id"
+    t.integer  "event_id"
+  end
+
+  add_index "orders", ["event_id"], name: "index_orders_on_event_id", using: :btree
+  add_index "orders", ["events_id"], name: "index_orders_on_events_id", using: :btree
+
+  create_table "ordertransactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.float    "price"
+    t.float    "time"
+    t.boolean  "private_party_room"
+    t.boolean  "paper_goods"
+    t.boolean  "pizza"
+    t.string   "birthday_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "events_id"
+  end
+
+  add_index "packages", ["events_id"], name: "index_packages_on_events_id", using: :btree
+
+  create_table "photos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,4 +112,5 @@ ActiveRecord::Schema.define(version: 20150620034741) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "orders", "events"
 end
