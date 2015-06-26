@@ -100,11 +100,6 @@ results = client.execute!(
 event = results.data
 end
 
-
-  
-
-
-
   def index
    check_upcoming_events
     @events = Event.all
