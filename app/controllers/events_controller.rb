@@ -35,6 +35,7 @@ def authorize
     puts "Credentials saved to #{CREDENTIALS_PATH}" unless auth.nil?
   end
   auth
+  puts "reached me" * 100
 end
 
 def check_upcoming_events
@@ -70,11 +71,11 @@ event = {
   'location' => @event.location,
   'description' => @event.description,
   'start' => {
-    'dateTime' => '2015-06-29T09:00:00-07:00',
+    'dateTime' => '2015-08-29T09:00:00-07:00',
     'timeZone' => 'America/Los_Angeles',
   },
    'end' => {
-    'dateTime' => '2015-06-30T17:00:00-07:00',
+    'dateTime' => '2015-08-30T17:00:00-07:00',
     'timeZone' => 'America/Los_Angeles',
   },
   'recurrence' => [
@@ -103,7 +104,8 @@ end
 
 
   def index
-   check_upcoming_events
+    # authorize
+   # check_upcoming_events
     @events = Event.all.order(start_date: :asc, created_at: :asc)
     # @packages = Packages.all 
   end
@@ -129,7 +131,7 @@ end
 
     respond_to do |format|
       if @event.save
-        authorize
+        # authorize
         create_event
         # calendars
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

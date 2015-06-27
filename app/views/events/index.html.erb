@@ -4,7 +4,7 @@ Play Amusement Logo   (On every header)
 
 <h1>Listing Events</h1>
 
-<table>
+<table id = "calendar"   >
   <thead>
     <tr>
       <th>Summary</th>
@@ -37,5 +37,12 @@ Play Amusement Logo   (On every header)
 </table>
 
 <br>
+
+
+<iframe id = "calendar" src="https://www.google.com/calendar/embed?src=754qcnsp17sgll46iduflhbem0%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+
+
 
 <%= link_to 'New Event', new_event_path %>
