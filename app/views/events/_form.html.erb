@@ -2,7 +2,6 @@
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
       <ul>
       <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,35 +9,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="field"> 
     <%= f.label :summary %><br>
     <%= f.text_field :summary %>
   </div>
+  <div class="field"> 
+  Date:<input type="text" id="datepicker">
+  </div>
+
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    Please enter how many kids will be attending: 
+    <br>
+    <%= f.select :attendees, (0..500) %>
+  </div> 
+  <div class = "field">
+    <%=f.fields_for :orders  do |ff| %>
+      First Name:
+       <%= ff.label :first_name %>
+       <%= ff.text_field :first_name %>
+       <div class="field">
+    <%= ff.label :last_name %><br>
+    <%= ff.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= ff.label :card_type %><br>
+    <%= ff.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+  </div>
+   <div class="field">
+    <%= ff.label :card_number %><br>
+    <%= ff.text_field :card_number %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :timezone %><br>
-    <%= f.text_field :timezone %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :attendees %><br>
-    <%= f.text_field :attendees %>
-  </div>
+    <%= ff.label :card_expires_on %><br>
+    <%= ff.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+  </div> 
+  <% end %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

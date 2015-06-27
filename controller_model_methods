@@ -1,5 +1,4 @@
 events
-
 schedule event 
 cancel event 
 pay for event
@@ -7,9 +6,8 @@ remind me in x days about event
 notify me about future events
 
 users 
-
 schedule events 
 pay for events 
 cancel events
-remind me in x days about event 
+remind me in x days about the event 
 notify me about future events

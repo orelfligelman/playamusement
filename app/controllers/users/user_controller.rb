@@ -1,2 +1,3 @@
-class UserController < ApplicationController
+class UserController < ApplicationController	
 end
+

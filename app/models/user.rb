@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+#associations 
+has_many :events
+has_many :orders 
+has_one :cart
+has_many :pictures, as: :imageable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

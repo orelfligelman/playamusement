@@ -1,0 +1,17 @@
+what needs to get done for this project to be finished: 
+
+when the user goes to the home page, he should be able to click on a link to go to an events page.
+ 
+There, he should see the packages that they offer for birthdays as well as the different features and attractions of the park. He should be able to choose a package for his birthday.
+	
+	the packages should be displayed on the events page. For example, for the coming week, the packages available are birthday and super_birthday 
+	Or, the user chooses June 25th, and he chooses the super_birthday package. 
+	First you choose the package you want, then you choose the date 
+
+
+
+
+When he does this, he should be able to add this event to his calendar. 
+The reservation date and information should also be seen on the backend by the admin and the admin alone, no other user.
+The user should then be able to pay for the reservation with his credit card. The user should be emailed a confirmation of this. 
+

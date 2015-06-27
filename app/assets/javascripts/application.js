@@ -13,6 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+<<<<<<< HEAD
 //= require fullcalendar
 //= require fullcalendar/gcal
+=======
+//= require nested_form_fields
+//= require jquery-ui
+>>>>>>> stripe
 //= require_tree .
+
+
+
+ 

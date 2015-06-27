@@ -3,6 +3,7 @@
 
   # GET /events
   # GET /events.json
+
 require 'google/api_client'
 require 'google/api_client/client_secrets'
 require 'google/api_client/auth/installed_app'
@@ -34,6 +35,7 @@ def authorize
     puts "Credentials saved to #{CREDENTIALS_PATH}" unless auth.nil?
   end
   auth
+  puts "reached me" * 100
 end
 
 def check_upcoming_events
@@ -56,7 +58,7 @@ puts "No upcoming events found" if results.data.items.empty?
 results.data.items.each do |event|
   start = event.start.date || event.start.date_time
   puts "- #{event.summary} (#{start})"
-end
+ end
 end
 
 
@@ -69,11 +71,11 @@ event = {
   'location' => @event.location,
   'description' => @event.description,
   'start' => {
-    'dateTime' => '2015-06-29T09:00:00-07:00',
+    'dateTime' => '2015-08-29T09:00:00-07:00',
     'timeZone' => 'America/Los_Angeles',
   },
    'end' => {
-    'dateTime' => '2015-06-30T17:00:00-07:00',
+    'dateTime' => '2015-08-30T17:00:00-07:00',
     'timeZone' => 'America/Los_Angeles',
   },
   'recurrence' => [
@@ -100,11 +102,16 @@ results = client.execute!(
 event = results.data
 end
 
-  def index
-   check_upcoming_events
-    @events = Event.all
-  end
+<<<<<<< HEAD
+=======
 
+>>>>>>> stripe
+  def index
+    # authorize
+   # check_upcoming_events
+    @events = Event.all.order(start_date: :asc, created_at: :asc)
+    # @packages = Packages.all 
+  end
   # GET /events/1
   # GET /events/1.json
   def show
@@ -113,6 +120,7 @@ end
   # GET /events/new
   def new
     @event = Event.new
+    1.times {@event.orders.build}
   end
 
   # GET /events/1/edit
@@ -126,6 +134,7 @@ end
 
     respond_to do |format|
       if @event.save
+        # authorize
         create_event
         # calendars
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

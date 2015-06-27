@@ -51,4 +51,13 @@ gem 'pg'
 gem 'google-api-client'
 gem 'better_errors'
 gem 'figaro'
+<<<<<<< HEAD
 gem 'fullcalendar-rails'
+=======
+gem 'rails_admin'
+gem "cancan"
+gem 'activemerchant'
+gem 'rails-erd'
+gem 'nested_form_fields'
+gem 'jquery-ui-rails'
+>>>>>>> stripe

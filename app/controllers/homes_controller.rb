@@ -6,10 +6,15 @@ class HomesController < ApplicationController
   def map 
     render 'map'
   end
+  def about 
+    render 'about' 
+  end
+  def events
+    render 'events'
+  end
   def index
     @homes = Home.all
   end
-
   # GET /homes/1
   # GET /homes/1.json
   def show

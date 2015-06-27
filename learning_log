@@ -1,0 +1,14 @@
+learning log 
+
+- debugging the omniauth request (debugger placed on user model)
+- hashie is a badass way of extending hashed 
+- omniauth library uses it extensively
+- ghost methods come up all the time (i.e. overwriting method_missing)
+- at some point, active_record::core.rb defines a new arel table
+- active_record::delegation.rb defines a variable to stand as a class object, using the klass notation
+- the hotspots gem can be used to monitor for changes to a file's github repo
+- activerecord defines your connection id with ActiveRecord::RuntimeRegistry.connection_id
+- Arel::Nodes::BindParam.new
+- RubyVM::DebugInspector.open
+
+

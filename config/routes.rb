@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :ordertransactions
+  resources :carts
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :events do 
+    resources :orders 
+    end
   resources :attractions
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'homes#index'
@@ -7,7 +12,7 @@ Rails.application.routes.draw do
     member do
         get 'directions'
         get 'pricing'
-        get 'map'
+        get 'about'
     end
   end
   # root to: "devise#index"
@@ -23,7 +28,7 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
+  # Example resource route (maps HTTP verbs to controller actioutns automatically):
   #   resources :products
 
   # Example resource route with options:
