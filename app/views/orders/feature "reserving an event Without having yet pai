@@ -1,0 +1,9 @@
+feature "reserving an event Without having yet paid for it" do
+	let (:method)
+	let (:method)
+	let (:method)
+
+		background {clicked the reserve now button}
+
+			scenario ""
+

@@ -1,3 +1,2 @@
 class PackagesController < ApplicationController
-
 end

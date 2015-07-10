@@ -1,24 +1,21 @@
-  class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+class EventsController < ApplicationController
+ before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
+ require 'google/api_client'
+ require 'google/api_client/client_secrets'
+ require 'google/api_client/auth/installed_app'
+ require 'google/api_client/auth/storage'
+ require 'google/api_client/auth/storages/file_store'
+ require 'fileutils'
 
-require 'google/api_client'
-require 'google/api_client/client_secrets'
-require 'google/api_client/auth/installed_app'
-require 'google/api_client/auth/storage'
-require 'google/api_client/auth/storages/file_store'
-require 'fileutils'
+ APPLICATION_NAME = ' anilatplay'
+ CLIENT_SECRETS_PATH = 'client_secret.json'
+ CREDENTIALS_PATH = File.join(Dir.home, '.credentials', "calendar-quickstart.json")
+ SCOPE = 'https://www.googleapis.com/auth/calendar'
 
-APPLICATION_NAME = 'Play Amusement'
-CLIENT_SECRETS_PATH = 'client_secret.json'
-CREDENTIALS_PATH = File.join(Dir.home, '.credentials',
-                             "calendar-quickstart.json")
-SCOPE = 'https://www.googleapis.com/auth/calendar'
-
-
-def authorize
+ def authorize
   FileUtils.mkdir_p(File.dirname(CREDENTIALS_PATH))
 
   file_store = Google::APIClient::FileStore.new(CREDENTIALS_PATH)
@@ -35,10 +32,9 @@ def authorize
     puts "Credentials saved to #{CREDENTIALS_PATH}" unless auth.nil?
   end
   auth
-  puts "reached me" * 100
 end
 
-def check_upcoming_events
+def get_req
 # Initialize the API
 client = Google::APIClient.new(:application_name => APPLICATION_NAME)
 client.authorization = authorize
@@ -51,43 +47,43 @@ results = client.execute!(
     :calendarId => 'primary',
     :maxResults => 10,
     :singleEvents => true,
-    :orderBy => 'startTime',
+    :orderBy => 'startTime', 
     :timeMin => Time.now.iso8601 })
+
 puts "Upcoming events:"
 puts "No upcoming events found" if results.data.items.empty?
 results.data.items.each do |event|
   start = event.start.date || event.start.date_time
   puts "- #{event.summary} (#{start})"
- end
+  end
 end
-
 
 def create_event
 client = Google::APIClient.new(:application_name => APPLICATION_NAME)
 client.authorization = authorize
-calendar_api = client.discovered_api('calendar', 'v3')
-event = {
+calendar_api = client.discovered_api('calendar', 'v3') 
+  event = {
   'summary' => @event.summary,
-  'location' => @event.location,
+  'location' => @event.location, 
   'description' => @event.description,
   'start' => {
-    'dateTime' => '2015-08-29T09:00:00-07:00',
-    'timeZone' => 'America/Los_Angeles',
+    'dateTime' => @event.start_date,
+    'timeZone' => @event.timezone,
   },
-   'end' => {
-    'dateTime' => '2015-08-30T17:00:00-07:00',
-    'timeZone' => 'America/Los_Angeles',
+  'end' => {
+    'dateTime' => @event.end_date,
+    'timeZone' => @event.timezone,
   },
   'recurrence' => [
     'RRULE:FREQ=DAILY;COUNT=2'
   ],
   'attendees' => [
-    {'email' => current_user.email},
+    {'email' => 'lpage@example.com'},
+    {'email' => 'sbrin@example.com'},
   ],
   'reminders' => {
     'useDefault' => false,
     'overrides' => [
-  
       {'method' => 'email', 'minutes' => 24 * 60},
       {'method' => 'sms', 'minutes' => 10},
     ],
@@ -100,18 +96,17 @@ results = client.execute!(
     :calendarId => 'primary'},
   :body_object => event)
 event = results.data
+puts "Event created: #{event.htmlLink}"
 end
 
-<<<<<<< HEAD
-=======
 
->>>>>>> stripe
-  def index
+def index
+  puts "YA"*50
     # authorize
-   # check_upcoming_events
-    @events = Event.all.order(start_date: :asc, created_at: :asc)
+    # get_req
+   @events = Event.all.order(start_date: :asc, created_at: :asc)
     # @packages = Packages.all 
-  end
+end
   # GET /events/1
   # GET /events/1.json
   def show
@@ -131,11 +126,12 @@ end
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    # @order = Order.new(order_event_params)
 
-    respond_to do |format|
+        respond_to do |format|
       if @event.save
         # authorize
-        create_event
+        # create_event
         # calendars
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
@@ -180,4 +176,4 @@ end
     def event_params
       params.require(:event).permit(:summary, :location, :description, :start_date, :timezone, :end_date, :attendees)
     end
-end
+  end

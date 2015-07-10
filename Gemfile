@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
@@ -30,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -39,6 +39,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # gem 'rspec' not yet installed 
 end
 
 gem 'rails_12factor', group: :production
@@ -51,13 +52,10 @@ gem 'pg'
 gem 'google-api-client'
 gem 'better_errors'
 gem 'figaro'
-<<<<<<< HEAD
 gem 'fullcalendar-rails'
-=======
 gem 'rails_admin'
 gem "cancan"
 gem 'activemerchant'
 gem 'rails-erd'
 gem 'nested_form_fields'
 gem 'jquery-ui-rails'
->>>>>>> stripe

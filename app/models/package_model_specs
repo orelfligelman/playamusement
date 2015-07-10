@@ -1,0 +1,40 @@
+package_model_specs
+	it includes all the details for the birthday event
+		Birthday Event Specs
+			it includes the amount of time contained in the birthday event 
+			it includes the number of rides contained in the birthday event.
+	it includes the details for the super birthday event
+		Super Birthday Event Specs
+			it includes the amount of time contained in the super birthday event 
+			it includes the number of rides contained in the super birthday event
+
+_______________________________________________________________
+
+Event Model Specs 
+	it shouldn't allow you to save an event if you haven't paid for it yet
+	it should allow you to reserve an event for a set period of time prior to registering
+	it should email you a reminder two weeks prior to the event
+	it should email you a reminder one week prior to the event 
+	**it should inform you of a cancellation possibility if one week prior to the event you haven't paid for it **
+	
+Attraction model specs 
+	** it should have pictures of all the rides 
+	** it should include prices per ride
+	it includes the time per ride
+	it includes the length of the ride 
+	it shows the proper pictures
+	
+
+	changing data type in a DB
+	when you get internet look up how to change the columns in the package class to booleans. They are now all strings 
+
+
+	change attendees to an integer 
+	remove timezones from the event	each attraction should have 3-4 photos 
+	when an event is created, it should create an associated order...
+	there should be a foreign key on events for users 
+
+
+	_______________________________________________________________________________________________
+	legend 
+		** - ask Anil

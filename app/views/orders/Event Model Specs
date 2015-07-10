@@ -1,0 +1,9 @@
+Event Model Specs 
+	it "shouldn't allow you to save an event if you haven't paid for it yet"
+	it "should email you a reminder two weeks prior to the event"
+	it "should email you a reminder one week prior to the event" 
+	**"it should inform you of a cancellation possibility if one week prior to the event you haven't paid for it" **
+	it "should include all the transactions"
+	it "includes a free lottery ticket"
+	it "demands awesomeness constantly"
+	

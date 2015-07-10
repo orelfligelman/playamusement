@@ -1,0 +1,10 @@
+erd notes 
+violaion of law of demeter - events shouldnt be talking
+what is the public interface for events?
+get rid of summary column
+	for each attraction do |photo|
+		photo.create 
+		end
+	end
+
+	

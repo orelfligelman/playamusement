@@ -27,16 +27,17 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = current_cart.build_order(params[:order])
+    @order = Order.new(order_params)
 
     respond_to do |format|
       if @order.save
-          if @order.purchase
+          if @order.process
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
+          end
         end
       end
     end
@@ -76,8 +77,6 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:new_cart_id, :first_name, :last_name, :card_type, :card_expires_on)
     end
-end
-
   def pay
      # Send requests to the gateway's test servers
     ActiveMerchant::Billing::Base.mode = :test
@@ -113,4 +112,4 @@ end
     else
       p  "not valid"
     end
-  end
+end

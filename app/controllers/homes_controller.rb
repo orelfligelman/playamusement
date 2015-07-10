@@ -3,17 +3,18 @@ class HomesController < ApplicationController
 
   # GET /homes
   # GET /homes.json
-  def map 
-    render 'map'
+  def directions 
+    render partial: 'directions'
   end
   def about 
-    render 'about' 
+    render partial:'about' 
   end
   def events
-    render 'events'
+    render partial: 'events'
   end
+
   def index
-    @homes = Home.all
+    # @homes = Home.all
   end
   # GET /homes/1
   # GET /homes/1.json

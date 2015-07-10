@@ -1,2 +1,11 @@
 class Packages < ActiveRecord::Base
+
+def birthday 
+end 
+def super_birthday
+end 
+
+
+
+
 end

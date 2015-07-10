@@ -2,22 +2,18 @@ Rails.application.routes.draw do
   resources :ordertransactions
   resources :carts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :events do 
-    resources :orders 
-    end
+  resources :events  
+  resources :orders 
   resources :attractions
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'homes#index'
-  resources :homes do
-    member do
-        get 'directions'
-        get 'pricing'
-        get 'about'
-    end
-  end
-  # root to: "devise#index"
+  resources :homes 
+  get 'directions', to: 'homes#directions'
+  # get 'homes#directions'
+  # roox`t to: "devise#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

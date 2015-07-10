@@ -14,37 +14,17 @@
     <%= f.text_field :summary %>
   </div>
   <div class="field"> 
-  Date:<input type="text" id="datepicker">
+    Date: <input type="text" id="datepicker">
   </div>
-
   <div class="field">
     Please enter how many kids will be attending: 
     <br>
     <%= f.select :attendees, (0..500) %>
-  </div> 
-  <div class = "field">
-    <%=f.fields_for :orders  do |ff| %>
-      First Name:
-       <%= ff.label :first_name %>
-       <%= ff.text_field :first_name %>
-       <div class="field">
-    <%= ff.label :last_name %><br>
-    <%= ff.text_field :last_name %>
   </div>
   <div class="field">
-    <%= ff.label :card_type %><br>
-    <%= ff.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+    <%= f.label :package %><br>
+    <%= f.select :package, [["Birthday"], ["Super Birthday"]] %>
   </div>
-   <div class="field">
-    <%= ff.label :card_number %><br>
-    <%= ff.text_field :card_number %>
-  </div>
-  <div class="field">
-    <%= ff.label :card_expires_on %><br>
-    <%= ff.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
-  </div> 
-  <% end %>
-</div>
   <div class="actions">
     <%= f.submit %>
   </div>

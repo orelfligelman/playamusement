@@ -1,4 +1,3 @@
-
 event calendar check
 admin interface to control creation of events
 user should see a calendar of events
@@ -17,7 +16,10 @@ Share via social media
 Contact owners 
 Download all pictures 
 Check for Upcoming EVents
-Have a landing page customized for himself 
+Have a landing page customized for himself
+cancel events
+be reminded in x days about the event 
+be notified about future events
 
 Admin can do: 
 

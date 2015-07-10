@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626190706) do
+ActiveRecord::Schema.define(version: 20150710191203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,12 @@ ActiveRecord::Schema.define(version: 20150626190706) do
     t.string   "timezone"
     t.datetime "end_date"
     t.string   "attendees"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.boolean  "paid"
+    t.string   "package"
+    t.boolean  "birthday"
+    t.boolean  "super_birthday"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -64,6 +67,8 @@ ActiveRecord::Schema.define(version: 20150626190706) do
     t.integer  "card_number"
     t.integer  "events_id"
     t.integer  "event_id"
+    t.string   "ip"
+    t.boolean  "active"
   end
 
   add_index "orders", ["event_id"], name: "index_orders_on_event_id", using: :btree

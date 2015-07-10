@@ -1,0 +1,25 @@
+				Packeage Model Specs
+feature "Booking an Event"
+describe Birthday do 
+	let(:regular_birthday) {FactoryGirl.create}
+		it "includes the amount of time contained in the birthday event"
+		it "includes the number of rides contained in the birthday event"
+		it "includes a picture of a super happy boy if hes a boy"
+		it "includes a picture of a super happy girl if shes a girl"
+		it "verifies that the birthday is of the proper gender"
+		it "ensures that she is awesome"
+
+describe Super_Birthday do 
+	let(:super_birthday) {FactoryGirl.create}
+		it "includes the amount of time contained in the super bi"rthday event is the proper amount of time in the super birthday event"
+		it "includes the number of rides contained in the super birthday event is the proper amount of rides contained in the super birthday center"
+		it "ensures there is unlimited potential to what your child can become"
+		it "includes an incredible amount of pictures"
+		it "comes with a kissing booth for the parents"
+		it "features some more awesome crap that doesnt make you feel like work"
+		it "includes a free cultural lesson on"
+		it "includes linguistic lessons for parents who want to speak a different language"
+		it "ensures that if you specify in advance what your desired language learning skill is it will be arranged"
+		it "address the needs of multicultural parents"
+		it "includes a free clown"
+		it  ""

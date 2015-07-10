@@ -1,6 +1,7 @@
-  require 'active_merchant'
-  require "active_merchant/billing/rails"
+  # require 'active_merchant'
+  # require "active_merchant/billing/rails"
  # Send requests to the gateway's test servers
+# Send requests to the gateway's test servers
 ActiveMerchant::Billing::Base.mode = :test
 
 # Create a new credit card object
@@ -26,11 +27,7 @@ if credit_card.valid?
   if response.success?
     # Capture the money
     gateway.capture(1000, response.authorization)
-    puts "paid"
   else
-    puts "not"
     raise StandardError, response.message
   end
-else
-  p  "not valid"
 end
