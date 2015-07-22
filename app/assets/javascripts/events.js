@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function() {
     $('#calendar').fullCalendar({
         googleCalendarApiKey: '',
@@ -7,7 +6,6 @@ $(document).ready(function() {
         }
     });
 });
-=======
 $(function() {
     $( "#datepicker" ).datepicker();
     $('#calendar').fullCalendar({
@@ -18,4 +16,4 @@ $(function() {
     	});
 	});
 });
->>>>>>> stripe
+
