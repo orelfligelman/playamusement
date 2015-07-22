@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :eventpackage, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  # root to: "eventpackage#index"
   get 'order_items/create'
 
   get 'order_items/update'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'eventpackage/index'
 
+  get 'pricing', to: 'homes#pricing' 
   resources :ordertransactions
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :events  

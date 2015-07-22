@@ -1,6 +1,6 @@
 class OrderItem < ActiveRecord::Base
   belongs_to :Eventpackage
-   belongs_to :order
+  belongs_to :order
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
@@ -8,11 +8,12 @@ class OrderItem < ActiveRecord::Base
 
    before_save :finalize
 
+   #
    def unit_price
     if persisted?
       self[:unit_price]
     else
-      product.price
+      eventpackages.price
     end
   end
 
@@ -22,8 +23,8 @@ class OrderItem < ActiveRecord::Base
 
   private
   def product_present
-    if product.nil?
-      errors.add(:product, "is not valid or is not active.")
+    if eventpackage.nil?
+      errors.add(:eventpackage, "is not valid or is not active.")
     end
   end
 

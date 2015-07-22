@@ -4,10 +4,13 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def directions 
-    render partial: 'directions'
+    render template: 'directions'
+  end
+  def pricing
+    render template: 'pricing'
   end
   def about 
-    render partial:'about' 
+    render template: 'attractions' 
   end
   def events
     render partial: 'events'
