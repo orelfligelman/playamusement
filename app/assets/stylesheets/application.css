@@ -12,9 +12,6 @@
  *
  *= require_tree .
  *= require_self
-<<<<<<< HEAD
  *= require fullcalendar
-=======
  *= require jquery-ui
->>>>>>> stripe
  */
