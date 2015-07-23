@@ -44,7 +44,6 @@ end
 
 gem 'rails_12factor', group: :production
 
-
 gem 'devise'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
@@ -59,3 +58,5 @@ gem 'activemerchant'
 gem 'rails-erd'
 gem 'nested_form_fields'
 gem 'jquery-ui-rails'
+gem 'carrierwave'
+
