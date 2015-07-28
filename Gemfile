@@ -58,5 +58,7 @@ gem 'activemerchant'
 gem 'rails-erd'
 gem 'nested_form_fields'
 gem 'jquery-ui-rails'
+gem 'aws-sdk', '~> 2'
 gem 'carrierwave'
+gem 'rmagick', '~> 2.15.2'
 

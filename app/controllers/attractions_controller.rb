@@ -69,6 +69,6 @@ class AttractionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attraction_params
-      params.require(:attraction).permit(:bumper_cars, :arcade, :himalaya, :carousel, :ballocity, :lazer, :runner, :soft_play, :inflatabales)
+      params.require(:attraction).permit(:name, :price, :agelimit, :avatar)
     end
 end

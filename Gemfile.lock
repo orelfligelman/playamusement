@@ -47,6 +47,12 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
+    aws-sdk (2.1.8)
+      aws-sdk-resources (= 2.1.8)
+    aws-sdk-core (2.1.8)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.1.8)
+      aws-sdk-core (= 2.1.8)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -120,6 +126,8 @@ GEM
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -234,6 +242,7 @@ GEM
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     retriable (1.4.1)
+    rmagick (2.15.3)
     ruby-graphviz (1.2.2)
     safe_yaml (1.0.4)
     sass (3.4.16)
@@ -282,6 +291,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemerchant
+  aws-sdk (~> 2)
   better_errors
   byebug
   cancan
@@ -302,6 +312,7 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   rails_admin
+  rmagick (~> 2.15.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
