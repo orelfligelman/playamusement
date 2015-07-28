@@ -102,8 +102,8 @@ end
 
 def index
   puts "YA"*50
-    # authorize
-    # get_req
+    authorize
+    get_req
    @events = Event.all.order(start_date: :asc, created_at: :asc)
     # @packages = Packages.all 
 end

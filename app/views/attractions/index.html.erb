@@ -4,10 +4,13 @@
       <hr class="featurette-divider">
       <h2 class="featurette-heading"> <%= attraction.name %> <span class="muted"><%=attraction.short_description%></span></h2>
       <div class="featurette">
-        <%=image_tag(attraction.avatar_url) %>)%>
-        <img class="featurette-image pull-right" src="assets/images/examples/bumper_cars.jpg">
+       <%=image_tag(attraction.avatar_url)%>
+        <p class="lead">Cost per Hour: <%=attraction.price%></p>
         <p class="lead"><%=attraction.long_description%></p>
       </div>
+       <td><%= link_to 'Show', attraction %></td>
+        <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
+        <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      <% end %>
    <!-- /END THE FEATURETTES -->
 
