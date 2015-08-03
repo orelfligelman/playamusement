@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728153005) do
+ActiveRecord::Schema.define(version: 20150802150114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20150728153005) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "phone_number"
+    t.text     "message"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "eventpackages", force: :cascade do |t|
@@ -60,7 +69,10 @@ ActiveRecord::Schema.define(version: 20150728153005) do
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
   create_table "order_informations", force: :cascade do |t|
     t.float    "subtotal"
@@ -130,6 +142,7 @@ ActiveRecord::Schema.define(version: 20150728153005) do
   create_table "photos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "avatar"
   end
 
   create_table "users", force: :cascade do |t|
@@ -152,6 +165,7 @@ ActiveRecord::Schema.define(version: 20150728153005) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "homes", "users"
   add_foreign_key "order_informations", "order_statuses"
   add_foreign_key "orders", "events"
 end

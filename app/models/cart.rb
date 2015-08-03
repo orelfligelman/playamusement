@@ -1,4 +1,4 @@
-class Cart < ActiveRecord::Base
+ class Cart < ActiveRecord::Base
 	#associations
 	has_one :order
 	belongs_to :user

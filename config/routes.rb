@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   resources :eventpackage, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   resources :homes 
   get 'directions', to: 'homes#directions'
   # get 'homes#directions'
-  # roox`t to: "devise#index"
+  # roox`t , to: "devise#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

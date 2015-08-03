@@ -1,0 +1,37 @@
+ <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        
+            <div class="span4">
+              <img class="img-circle" data-src="assets/images/family_gathering.jpg">
+              <h2>Birthdays</h2>
+              <p>What would you like to say here?</p>
+              <%=image_tag("birthday_hat")%>
+              <p><a class="btn" <%= link_to "Events", new_event_path %>> </a> </p>
+             </div>
+        
+
+            <div class="span4">
+              <img class="img-circle" data-src="holder.js/140x140">
+              <h2>Summer Camps</h2>
+              <%=image_tag("family_gathering")%>
+              <p>What would you like to say here?</p>
+              <p><a class="btn" <%= link_to "Events", new_event_path %>> </a></p>
+           </div>
+        
+          <div class="span4">
+            <img class="img-circle" data-src="holder.js/140x140">
+            <h2>Special Events</h2>
+            <%=image_tag("lazer_tag")%>
+            <p> And here</p>
+            <p><a class="btn" <%= link_to "Events", new_event_path %>> </a></p>
+          </div>
+        
+        </div>
+      </div>
+

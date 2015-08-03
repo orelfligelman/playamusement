@@ -1,0 +1,17 @@
+<br></br>
+<br></br>
+<br></br>
+<%= form_tag("/homes", :method => "post")do  %>
+  <h1>Please enter your contact information and we will answer your question ASAP! </h1>
+  <div class="field">
+  <%= label_tag(:q, "name") %>
+  <%= text_field_tag(:q) %>
+  <%= label_tag(:q, "email") %>
+  <%= text_field_tag(:q) %>
+  <%= label_tag(:q, "phone number") %>
+  <%= telephone_field(:user, :phone) %>
+  <%= label_tag(:q, "message") %>
+  <%= text_area_tag(:message, "Hi, nice site", :size => "24x6") %>
+  <%= submit_tag("Search") %>
+  <% end %>
+ 
