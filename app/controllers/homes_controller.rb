@@ -9,6 +9,9 @@ class HomesController < ApplicationController
   def pricing
     render template: 'pricing'
   end
+   def packaging
+    render template: 'packaging'
+  end
   def about 
     render template: 'attractions' 
   end

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   root to: 'homes#index'
   resources :homes 
   get 'directions', to: 'homes#directions'
+  get 'packaging', to: 'homes#packaging'
   # get 'homes#directions'
   # roox`t , to: "devise#index"
   # The priority is based upon order of creation: first created -> highest priority.
