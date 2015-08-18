@@ -61,4 +61,5 @@ gem 'jquery-ui-rails'
 gem 'aws-sdk', '~> 2'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.15.2'
-
+gem 'capybara'
+gem 'selenium-webdriver'
