@@ -27,5 +27,5 @@ session.visit "http://www.ebay.com"
     session.select('iOS - Apple', :from => 'Operating System')
     session.select('Bar', :from => 'Style')
     session.select('Network Locked', :from => 'Lock Status')
-    session.fill_in 'startPrice', :with => '175.00'
+    session.fill_in 'startPrice', :with => '5175.00'
     session.click_button 'List It' 

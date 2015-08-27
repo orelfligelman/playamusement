@@ -1,12 +1,13 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
-
+  # before_action :render template: "navbar"
   # GET /homes
   # GET /homes.json
   def directions 
     render template: 'directions'
   end
   def pricing
+    # render template: 'navbar'
     render template: 'pricing'
   end
    def packaging
