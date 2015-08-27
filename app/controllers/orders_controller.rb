@@ -27,13 +27,15 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order_information = OrderInformation.new(order_information_params)
+   @order_information = OrderInformation.new(order_information_params)
+
 
     respond_to do |format|
       if @order_information.save
           if @order.process
         format.html { redirect_to @order_information, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
+        EmailWorker.perform_async(@order_information.id)
       else
         format.html { render :new }
         format.json { render json: @order_information.errors, status: :unprocessable_entity }

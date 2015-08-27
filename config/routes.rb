@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+
   resources :contacts
   resources :eventpackage, only: [:index]
   resource :cart, only: [:show]
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   get 'pricing', to: 'homes#pricing' 
   resources :ordertransactions
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Sidekiq::Web => '/sidekiq'
   resources :events  
   resources :orders 
   resources :attractions
